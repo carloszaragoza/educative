@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<components:PlanDePagosBase xmlns:fx="http://ns.adobe.com/mxml/2009" 
+							xmlns:s="library://ns.adobe.com/flex/spark" 
+							xmlns:mx="library://ns.adobe.com/flex/mx" 
+							xmlns:components="us.educative.views.components.*" xmlns:utiles="com.hillelcoren.components.*" width="100%" height="100%"
+							>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:Panel x="0" y="0" width="100%" height="100%" title="Plan de pagos y carga de conceptos">
+		<s:layout>
+			<s:VerticalLayout gap="1" paddingBottom="5" paddingLeft="5" paddingTop="5" paddingRight="5"/>
+		</s:layout>
+		<s:controlBarContent>
+			<s:Label id="lblInformacion"/>
+		</s:controlBarContent>
+		<s:HGroup width="100%" verticalAlign="middle" paddingBottom="10">
+			<s:Label fontWeight="bold" textAlign="right" text="Nombre del alumno" width="120"/>
+			<utiles:AdvancedAutoComplete width="100%" dataProvider="{planDePagosModel.alumnosList}" height="25" borderColor="0xcccccc"
+										 labelField="alumno" change="alumnoSeleccionado(event)" id="ddlAlumno"
+										 />	
+		</s:HGroup>
+		<mx:HDividedBox width="100%" height="100%" paddingBottom="20">
+		<!--<s:HGroup width="100%" height="100%" paddingBottom="20" gap="10">-->
+			<s:VGroup width="40%"  height="100%" paddingBottom="10">
+				<s:DataGrid width="100%" height="100%" id="dgConceptosCargados" dataProvider="{planDePagosModel.conceptosDePagoList}">
+					<s:columns>
+						<s:ArrayList>
+							<s:GridColumn headerText="Concepto" dataField="concepto"/>
+							<s:GridColumn headerText="Mes" dataField="mes_nombre"/>
+							<s:GridColumn headerText="" width="40">
+								<s:itemRenderer>
+									<fx:Component>
+										<s:GridItemRenderer>
+											<s:HGroup>
+												<s:Button icon="assets/icons/delete.png" width="36" click="outerDocument.borrarConcepto(data)"/>
+											</s:HGroup>
+										</s:GridItemRenderer>
+									</fx:Component>
+								</s:itemRenderer>
+							</s:GridColumn>
+						</s:ArrayList>
+					</s:columns>
+				</s:DataGrid>
+			</s:VGroup>
+			<s:VGroup width="60%" paddingLeft="10" paddingBottom="10">
+				<s:HGroup width="100%" verticalAlign="middle">
+					<s:Label fontWeight="bold" text="Aplicar por plan de pagos" width="160" textAlign="left"/>
+					<s:DropDownList id="ddlPlanDePagos" width="100%" dataProvider="{planDePagosModel.planesList}" 
+									labelField="plan"/>
+					<s:Button label="Aplicar +" click="aplicaPlanDePagos()" enabled="{ddlAlumno.text.length!=0}"/>
+				</s:HGroup>
+				<mx:HRule width="100%"/>
+				<s:HGroup width="100%" verticalAlign="middle">
+					<s:Label text="Aplicar por concepto" fontWeight="bold" width="160" textAlign="left"/>
+					<s:RadioButton groupName="gpoTipo" enabled="{ddlAlumno.text.length!=0}" id="gpoServicio" label="Servicio" change="traerListaDeConceptos(event, 'S')"/>
+					<s:RadioButton groupName="gpoTipo" enabled="{ddlAlumno.text.length!=0}" id="gpoProducto" label="Producto" change="traerListaDeConceptos(event, 'P')"/>
+				</s:HGroup>
+				<s:HGroup width="100%" verticalAlign="middle">
+					<s:DataGrid width="100%" height="100%" id="dgProductoServicio" dataProvider="{planDePagosModel.productoServicioList}">
+						<s:columns>
+							<s:ArrayList>
+								<s:GridColumn headerText="Concepto" dataField="concepto"/>
+								<s:GridColumn headerText="Precio P." dataField="precio_publico"/>
+								
+								<s:GridColumn headerText="Mes" width="200" dataField="mes">
+									<s:itemRenderer>
+										<fx:Component>
+											<s:GridItemRenderer>
+												<s:DropDownList width="100%" change="outerDocument.cambioMes(event)" dataProvider="{outerDocument.planDePagosModel.listadoMeses}" labelField="label"/>
+											</s:GridItemRenderer>
+										</fx:Component>
+									</s:itemRenderer>
+								</s:GridColumn>
+								<s:GridColumn headerText="" width="25">
+									<s:itemRenderer>
+										<fx:Component>
+											<s:GridItemRenderer>
+												<s:HGroup>
+													<s:Button icon="assets/icons/add.png" width="20" click="outerDocument.agregaConcepto(data)"/>
+												</s:HGroup>
+											</s:GridItemRenderer>
+										</fx:Component>
+									</s:itemRenderer>
+								</s:GridColumn>
+							</s:ArrayList>
+						</s:columns>
+					</s:DataGrid>	
+				</s:HGroup>
+				
+			</s:VGroup>
+		</mx:HDividedBox>
+		
+		
+		
+	</s:Panel>
+</components:PlanDePagosBase>

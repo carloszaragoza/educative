@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- http://blog.flexexamples.com/2009/03/22/setting-a-background-image-on-an-fxapplication-in-flex-gumbo/ -->
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		name="CustomApplicationSkin"
+		alpha.disabled="0.5"
+		width.normal="100%" height.normal="100%">
+	<s:states>
+		<s:State name="normal" />
+		<s:State name="disabled" />
+	</s:states>
+	
+	<fx:Metadata>
+		<![CDATA[ 
+		[HostComponent("spark.components.Application")]
+		]]>
+	</fx:Metadata> 
+	<!-- fill -->
+	<s:Image id="img"
+			 source="@Embed('../assets/lineas.png')"
+			 fillMode="clip"
+			 left="0"
+			 top="0"
+			 />
+	<!-- background fill -->
+	<s:Rect id="background" left="1"  top="1" right="1" bottom="1">
+		<s:fill>
+			<s:LinearGradient rotation="120">
+				<s:entries>
+					<s:GradientEntry color="0xeeeded" ratio="0" alpha="1"/>
+					<s:GradientEntry color="0xe3e2e2" ratio=".5" alpha=".6"/>
+				</s:entries>
+			</s:LinearGradient>            
+		</s:fill>
+	</s:Rect>
+	
+	<s:Group id="contentGroup" minWidth="0" minHeight="0"
+			 left.disabled="0" right.disabled="0" top.disabled="0" bottom.disabled="0"
+			 x.normal="0" y.normal="0" width.normal="100%" height.normal="100%"/>
+	
+</s:Skin>

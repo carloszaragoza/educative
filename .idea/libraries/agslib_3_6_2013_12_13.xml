@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="agslib-3.6-2013-12-13" type="flex">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/agslib-3.6-2013-12-13.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

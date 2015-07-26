@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SkinnableContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					  xmlns:s="library://ns.adobe.com/flex/spark" 
+					  xmlns:mx="library://ns.adobe.com/flex/mx" width="200" height="100%">
+	<s:layout>
+		<s:VerticalLayout paddingBottom="5" paddingLeft="5" paddingRight="5" paddingTop="5"/>
+	</s:layout>
+<fx:Script>
+	<![CDATA[
+		import mx.collections.ArrayCollection;
+		import mx.containers.ViewStack;
+		
+		import us.educative.events.CommonEvent;
+		import us.educative.models.CommonModel;
+		[Bindable]
+		public var proveedorControlEscolar:ViewStack;
+		
+		[Inject]
+		[Bindable] public var commonModel:CommonModel
+		
+		protected function menuSelected(event:MouseEvent):void
+		{
+			// TODO Auto-generated method stub
+			var eventChangeMenu:CommonEvent = new CommonEvent(CommonEvent.MENU_SELECCIONA_COMPONENTE);
+			eventChangeMenu.item = event.currentTarget.selectedItem;
+			dispatchEvent(eventChangeMenu);
+		}
+		
+	]]>
+</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+
+	</fx:Declarations>
+<!--	<s:Label fontSize="24" text="Howard Institute"/>
+-->	
+	<mx:Accordion width="100%" height="100%" headerStyleName="acordion">
+		<s:NavigatorContent width="100%" height="100%" label="Dashboard">
+			<s:List width="100%" styleName="listMenu" 
+					itemRenderer="assets.skins.ListElementEducative" 
+					height="100%" labelField="name" dataProvider="{commonModel.menuDashboardAdmin}"
+					click="menuSelected(event)">
+			</s:List>
+		</s:NavigatorContent>
+		<s:NavigatorContent width="100%" height="100%" label="Control Escolar">
+			<s:List width="100%" styleName="listMenu"
+					itemRenderer="assets.skins.ListElementEducative" 
+					height="100%" labelField="name" dataProvider="{commonModel.menuControlEscolarAdmin}"
+					click="menuSelected(event)">
+			</s:List>
+		</s:NavigatorContent>
+		<s:NavigatorContent width="100%" height="100%" label="Administración y Finanzas">
+			<s:List dataProvider="{commonModel.menuAdministracionFinanzasAdmin}" 
+					labelField="name" width="100%" height="100%" styleName="listMenu" 
+					itemRenderer="assets.skins.ListElementEducative" click="menuSelected(event)"/>
+		</s:NavigatorContent>
+		<s:NavigatorContent width="100%" height="100%" label="Reportes">
+			<s:List dataProvider="{commonModel.menuReportesAdmin}" labelField="name" width="100%" height="100%" 
+					styleName="listMenu" itemRenderer="assets.skins.ListElementEducative" click="menuSelected(event)"/>
+		</s:NavigatorContent>
+		<s:NavigatorContent width="100%" height="100%" label="Configuración">
+		</s:NavigatorContent>
+	</mx:Accordion>
+</s:SkinnableContainer>

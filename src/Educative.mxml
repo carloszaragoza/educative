@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   preloaderChromeColor.login="#ADADAD"
+			   xmlns:views="us.educative.views.*"
+			   xmlns:swiz="http://swiz.swizframework.org"
+			   xmlns:config="us.educative.config.*"
+			   xmlns:body="us.educative.views.body.*"
+			   minHeight="600" minWidth="800">
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	<s:states>
+		<s:State name="login"/>
+		<s:State name="menu"/>
+	</s:states>
+	<fx:Script>
+		<![CDATA[
+			
+			[EventHandler(event="CommonEvent.USER_LOGGED_EVENT")]
+			public function Logged():void
+			{
+				currentState = "menu";
+				
+			}
+		]]>
+	</fx:Script>
+	<fx:Style source="assets/style.css"/>
+	<fx:Declarations>
+		<swiz:Swiz>
+			<swiz:beanProviders>
+				<config:Beans/>
+			</swiz:beanProviders>
+			
+			<!--<swiz:loggingTargets>
+			<swiz:SwizTraceTarget id="myTraceTarget"/>
+			</swiz:loggingTargets>-->
+			
+			<swiz:config>
+				<swiz:SwizConfig
+					eventPackages="us.educative.events.*"
+					viewPackages="us.educative.views.*"/>
+			</swiz:config>
+		</swiz:Swiz>
+	</fx:Declarations>
+	
+	<s:Image includeIn="login" top="10" horizontalCenter="0" source="assets/pics/logoace.png"/>
+	<body:Login id="login" includeIn="login" bottom="150" horizontalCenter="0"/>
+	<views:Dashboard id="dashboard" includeIn="menu" left="0" top="0"/>
+	
+	
+</s:Application>

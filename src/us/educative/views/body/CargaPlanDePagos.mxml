@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" width="400" height="300">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:layout>
+		<s:VerticalLayout>
+			
+		</s:VerticalLayout>
+	</s:layout>
+	<s:HGroup width="100%" verticalAlign="middle">
+		<s:Label text="Plan de Pagos"/>
+		<s:DropDownList width="100%" id="ddlPlanDePagos"/>
+	</s:HGroup>
+	<fx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import mx.events.CloseEvent;
+			
+			import us.educative.events.GruposEvent;
+			
+			public var objeto:Object;
+			
+			
+			public function preventAlertPlanDePagos(data:Object):void
+			{
+				objeto = data;
+				Alert.show("Estás seguro de querar cargar el plan de pagos "+ ddlPlanDePagos.labelDisplay,"",3,this,aplicarPlanDePagos);
+			}
+			
+			public function aplicarPlanDePagos(event:CloseEvent):void
+			{
+				if(event.detail == Alert.YES)
+				{
+					objeto.id_plan = ddlPlanDePagos.selectedItem.id_plan;
+					
+					var eventCargarPlanDePagos:GruposEvent = new GruposEvent(GruposEvent.GRUPOS_APLICA_PLAN_DE_PAGOS);
+					eventCargarPlanDePagos.plan = objeto;
+					dispatchEvent(eventCargarPlanDePagos);
+				}
+			}
+		]]>
+	</fx:Script>
+</s:TitleWindow>

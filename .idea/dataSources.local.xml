@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - plantel@localhost" uuid="1405cb64-d920-4720-82b3-2769c8afa7ff">
+      <secret-storage>master_key</secret-storage>
+      <user-name>adminKvCaTm2</user-name>
+      <schema-pattern>plantel.*</schema-pattern>
+      <default-schemas>plantel.*</default-schemas>
+    </data-source>
+  </component>
+</project>

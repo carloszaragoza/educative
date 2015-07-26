@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<components:AlumnosBase xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						xmlns:s="library://ns.adobe.com/flex/spark" 
+						xmlns:mx="library://ns.adobe.com/flex/mx"
+                        xmlns:components="us.educative.views.components.*" width="100%" height="100%">
+	<fx:Declarations>
+		<mx:StringValidator id="validaMatricula" source="{txtMatricula}" property="text" 
+							requiredFieldError="Escribe la matricula 2014(año)08(mes)001(consecutivo)" trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaCurp" source="{txtCurp}" property="text" 
+							requiredFieldError="Escribe un curp valido" maxLength="18" minLength="16" 
+							tooShortError="El curp debe contener al menos 16 dígitos" trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaNombre" source="{txtNombre}" property="text" requiredFieldError="Escribe el nombre de tu alumno"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaPaterno" source="{txtPaterno}" property="text" requiredFieldError="Escribe el apellido paterno de tu alumno"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaMaterno"  source="{txtMaterno}" property="text" requiredFieldError="Escribe el apellido materno"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaSangre" source="{txtSangre}" property="text"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaEmergencias" source="{txtTelefonoEmergencia}" property="text"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaCorreo" source="{txtCorreo}" property="text" trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaFamilia" source="{txtFamilia}" property="text" trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaFecha" source="{dateFechaNacimiento}" property="text" trigger="{btnSave}" triggerEvent="click"/>
+	</fx:Declarations>
+	<s:Panel x="0" y="0" width="100%" height="100%" title="Alumnos">
+		<s:layout>
+			<s:VerticalLayout gap="1" paddingBottom="5" paddingLeft="5" paddingTop="5"/>
+		</s:layout>		
+		<s:controlBarContent>
+			<s:Label id="lblInformacion"/>
+		</s:controlBarContent>
+		
+		<s:ButtonBar width="100%" dataProvider="{viewStackContenido}" textAlign="right"/>
+		<mx:ViewStack id="viewStackContenido" width="100%" height="100%">
+			<s:NavigatorContent width="100%" height="100%" label="Registro de alumno">
+				<s:VGroup width="100%" height="100%" paddingBottom="10" paddingLeft="10"
+						  paddingRight="10" paddingTop="10">
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label width="120" fontWeight="bold" text="Matricula" textAlign="right"/>
+						<s:TextInput id="txtMatricula" width="200"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="CURP" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtCurp" width="200"/>
+					</s:HGroup>
+					
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Nombre completo" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtNombre" width="100%" />
+						<s:TextInput id="txtPaterno" width="100%" prompt="Apellido paterno" />
+						<s:TextInput id="txtMaterno" width="100%" prompt="Apellido materno" />
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Sexo" fontWeight="bold" width="120" textAlign="right"/>
+						<s:RadioButton groupName="gpoSexo" id="gpoHombre" label="Hombre"/>
+						<s:RadioButton groupName="gpoSexo" id="gpoMujer" label="Mujer"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Tipo de sangre" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtSangre"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Fecha de nacimiento" fontWeight="bold" width="120" textAlign="right"/>
+						
+						<mx:DateField width="120" height="27" textInputStyleName="dateFieldRounded" id="dateFechaNacimiento"  formatString="YYYY-MM-DD"
+									  monthNames="['Enero', 'Febrero', 'Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']"
+									  dayNames="[D,L,M,M,J,V,S]" yearNavigationEnabled="true"/>
+					</s:HGroup>
+					
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Tel. Emergencias" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtTelefonoEmergencia" width="100%"/>
+						<s:Label width="120" fontWeight="bold" text="Correo electrónico"
+								 textAlign="right"/>
+						<s:TextInput id="txtCorreo" width="100%"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Enfermedades" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextArea id="txtEnfermedades" width="100%" height="80"/>
+						<s:Label text="Alergias" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextArea id="txtAlergias" width="100%" height="80"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Familia" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtFamilia" width="100%" enabled="false"/>
+						<s:Button label="Ubicar familiar" icon="assets/icons/people.png" click="ubicarFamiliarPopup()"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Fotografía" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtFotografia" width="200"/>
+						<s:Button width="36" icon="assets/icons/camera.png" click="browersFileToUpload()"/>
+						<s:Image width="64" height="64" id="imagenFotografia" source="assets/pics/person.png"/>
+						
+					</s:HGroup>
+					<s:HGroup width="100%" horizontalAlign="right" paddingBottom="1" paddingLeft="1"
+							  paddingRight="1" paddingTop="1">
+						<s:Button label="Nuevo" icon="assets/icons/application_add.png" click="newAlumno()"/>
+						<s:Button label="Cancelar" icon="assets/icons/cancel.png" click="clearControls()"/>
+						<s:Button label="{isUpdating?'Actualizar':'Guardar'}" icon="assets/icons/add.png" 
+								  click="saveAlumnosSendDataToControllerByEvent(isUpdating)" styleName="primaryButton"
+								  id="btnSave"/>
+					</s:HGroup>
+				</s:VGroup>
+			</s:NavigatorContent>
+			<s:NavigatorContent width="100%" height="100%" label="Consulta de alumnos">
+				<s:VGroup width="100%" height="100%" paddingBottom="10" paddingLeft="10"
+						  paddingRight="10" paddingTop="10"> 
+					
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Matricula o nombre" fontWeight="bold" textAlign="right"/>
+						<s:TextInput id="txtTextoBusqueda" width="100%"/>
+						<s:Button label="Buscar" click="buscarTodosLosAlumnos();"
+								  icon="assets/icons/find.png"/>
+					</s:HGroup>
+					<s:DataGrid width="100%" height="100%" requestedRowCount="4" dataProvider="{alumnoModel.alumnosList}">
+						<s:columns>
+							<s:ArrayList>
+								<s:GridColumn dataField="matricula" headerText="Matricula" width="90"></s:GridColumn>
+								<s:GridColumn dataField="curp" headerText="CURP" width="140"></s:GridColumn>
+								<s:GridColumn dataField="nombre" headerText="Nombre"></s:GridColumn>
+								<s:GridColumn dataField="apaterno" headerText="Primer apellido"></s:GridColumn>
+								<s:GridColumn dataField="amaterno" headerText="Segundo apellido"></s:GridColumn>
+								<s:GridColumn headerText="" width="77">
+									<s:itemRenderer>
+										<fx:Component>
+											<s:GridItemRenderer>
+												<s:HGroup>
+													<s:Button icon="assets/icons/delete.png" width="36" click="outerDocument.borrarAlumno(data)"/>
+													<s:Button icon="assets/icons/application_form_edit.png" width="36" click="outerDocument.modificarAlumno(data)"/>
+												</s:HGroup>
+												
+											</s:GridItemRenderer>
+										</fx:Component>
+									</s:itemRenderer>
+								</s:GridColumn>
+							</s:ArrayList>
+						</s:columns>
+					</s:DataGrid>
+				</s:VGroup>
+			</s:NavigatorContent>
+			
+		</mx:ViewStack>
+		
+		
+		
+	</s:Panel>
+    <fx:Script><![CDATA[
+        import us.educative.events.GruposEvent;
+        ]]></fx:Script>
+</components:AlumnosBase>

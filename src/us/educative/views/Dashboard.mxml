@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SkinnableContainer xmlns:fx="http://ns.adobe.com/mxml/2009"
+					  xmlns:s="library://ns.adobe.com/flex/spark"
+					  xmlns:mx="library://ns.adobe.com/flex/mx"
+					  width="100%" height="100%" xmlns:views="us.educative.views.*" xmlns:components="us.educative.views.components.*">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.IndexChangedEvent;
+			
+			protected static function viewstackContenedorPrincipal_childIndexChangeHandler(event:IndexChangedEvent):void {
+				
+				trace("Aviso" + event.newIndex);
+			}
+			
+			[EventHandler(event="CommonEvent.MENU_SELECCIONA_COMPONENTE", properties="item")]
+			public function changeMenu(item:Object):void
+			{
+				var cView:String = item.data;
+				
+				
+				viewstackContenedorPrincipal.selectedChild = this[cView];
+				
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<mx:HDividedBox width="100%" height="100%">
+		<mx:VBox height="100%" width="180" borderAlpha="0">
+			<s:Image width="180" height="180" scaleMode="stretch" smooth="true"
+					 source="@Embed('/assets/pics/logoace.png')"/>
+			<views:MenuLeft proveedorControlEscolar="{viewstackContenedorPrincipal}" width="100%" height="100%"/>
+		</mx:VBox>
+		<mx:VBox width="100%" height="100%">
+			<mx:ViewStack id="viewstackContenedorPrincipal" width="100%" height="100%" 
+						  childIndexChange="viewstackContenedorPrincipal_childIndexChangeHandler(event)" 
+						  >
+				<s:NavigatorContent width="100%" height="100%" label="Dashboard" id="tableroContainer">
+					<components:DashboardCharts/>
+				</s:NavigatorContent>
+				<s:NavigatorContent width="100%" height="100%" label="Alumnos" id="alumnosContainer">
+					<components:Alumnos/>
+				</s:NavigatorContent>
+				<s:NavigatorContent width="100%" height="100%" label="Padres" id="padresContainer">
+					<components:Padres/>
+				</s:NavigatorContent>
+				<s:NavigatorContent width="100%" height="100%" label="Empleados" id="empleadosContainer">
+					<components:Empleados/>
+				</s:NavigatorContent>
+				<s:NavigatorContent width="100%" height="100%" label="Periodos" id="periodosContainer">
+					<components:Periodos/>
+				</s:NavigatorContent>
+				<s:NavigatorContent width="100%" height="100%" label="Pagos" id="pagosContainer">
+					<components:ServiciosProductos/>
+				</s:NavigatorContent>
+				<s:NavigatorContent width="100%" height="100%" label="Grupos" id="gruposContainer">
+					<components:Grupos/>
+				</s:NavigatorContent>
+				<s:NavigatorContent width="100%" height="100%" label="Ingresos - Pagos" id="ingresosContainer">
+					<components:Ingresos/>
+				</s:NavigatorContent>
+				<s:NavigatorContent width="100%" height="100%" label="Plan de pagos" id="planDePagosContainer">
+					<components:PlanDePagos/>
+				</s:NavigatorContent>
+				<s:NavigatorContent width="100%" height="100%" label="Deudores por mes" id="deudoresPorMesContainer">
+					<components:DeudoresPorMes/>
+				</s:NavigatorContent>
+				
+			</mx:ViewStack>
+		</mx:VBox>
+	</mx:HDividedBox>
+	
+	
+	
+</s:SkinnableContainer>

@@ -1,0 +1,35 @@
+<swiz:BeanProvider 
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:swiz="http://swiz.swizframework.org" 
+	xmlns:services="us.educative.services.*" 
+	xmlns:controllers="us.educative.controllers.*" 
+	xmlns:models="us.educative.models.*">
+	
+	
+	<models:CommonModel id="commonModel"/>
+	<models:AlumnoModel id="alumnoModel"/>
+	<models:DireccionModel id="direccionModel"/>
+	<models:PadresModel id="padresModel" />
+	<models:EmpleadoModel id="empleadoModel" />
+	<models:PeriodoModel id="periodoModel" />
+	<models:NivelEducativoModel id="nivelEducativoModel"/>
+	<models:GruposModel id="gruposModel"/>
+    <models:ServiciosProductosModel id="serviciosProductosModel"/>
+    <models:IngresosModel id="ingresosModel"/>
+    <models:UsuarioModel id="usuarioModel"/>
+	<models:PlanDePagosModel id="planDePagosModel"/>
+	
+	
+	<controllers:CommonController id="commonController"/>
+	<controllers:AlumnoController id="alumnoController"/>
+	<controllers:PadresController id="padresController"/>
+	<controllers:DireccionController id="direccionController"/>
+	<controllers:EmpleadoController id="empleadoController"/>
+	<controllers:PeriodoController id="periodoController" />
+	<controllers:GruposController id="grupoController"/>
+    <controllers:ServiciosProductosController id="serviciosProductosController"/>
+    <controllers:IngresosController id="ingresosController"/>
+	<controllers:PlanDePagosController id="planDePagosController"/>
+	
+	
+</swiz:BeanProvider>

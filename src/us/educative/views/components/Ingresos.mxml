@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Created by carlos on 8/13/14.
+-->
+<components:IngresosBase xmlns:fx="http://ns.adobe.com/mxml/2009"
+						 xmlns:s="library://ns.adobe.com/flex/spark"
+						 xmlns:mx="library://ns.adobe.com/flex/mx"
+						 xmlns:components="us.educative.views.components.*"
+						 width="100%" height="100%" creationComplete="init()" 
+						 xmlns:utilidad="com.hillelcoren.components.*">
+	<fx:Declarations>
+		
+	</fx:Declarations>
+	
+	<s:Panel x="0" y="0" width="100%" height="100%" title="Tesorería::Ingresos">
+		<s:layout>
+			<s:VerticalLayout gap="1" paddingBottom="5" paddingLeft="5" paddingTop="5" paddingRight="5"/>
+		</s:layout>
+		<s:controlBarContent>
+			<s:HGroup width="100%" verticalAlign="middle">
+				<s:Label id="lblInformacion"/>
+				<s:Label text="Día límite de pago" textAlign="right"/>
+				<s:NumericStepper id="numericStepperDiaLimite" value="12" minimum="1" maximum="12" enabled="false"/>
+				
+				<s:Label text="Monto a penalizar" textAlign="right"/>
+				<s:TextInput id="txtMontoPenalizar" width="40" text="10" enabled="false"/>
+				<s:Label text="%" fontWeight="bold"/>
+				
+				<s:Label text="Descuento" textAlign="right"/>
+				<s:TextInput width="40" id="txtDescuento" text="{ddlAlumnos.selectedItem.porcentaje}" enabled="false" />
+				<s:Label fontWeight="bold" text="%" textAlign="right"/>
+			</s:HGroup>
+		</s:controlBarContent>
+		<s:ButtonBar width="100%" dataProvider="{viewStackContenido}" textAlign="right"/>
+		<mx:ViewStack id="viewStackContenido" width="100%" height="100%">
+			<s:NavigatorContent width="100%" height="100%" label="Pagos de alumnos">
+				<s:VGroup x="0" y="0" width="100%" height="100%" paddingBottom="10" paddingLeft="10"
+						  paddingRight="10" paddingTop="10">
+					<s:HGroup width="100%" height="50%">
+						<s:VGroup width="100%" height="100%">
+							<!-- Lista  de textos -->
+							<s:HGroup width="100%" verticalAlign="middle">
+								
+								<s:Label text="Nivel" fontWeight="bold" width="120" textAlign="right"/>
+								<s:DropDownList width="100%" change="getAllGrupos(event)" id="cboNivelEducativo" dataProvider="{nivelEducativoModel.nivelEducativoList}" labelField="nivel"/>
+								<s:Label text="Grupo" fontWeight="bold" width="80" textAlign="right"/>
+								<s:DropDownList width="100%" id="ddlGrupos" dataProvider="{ingresosModel.listadoGruposIngresos}" labelField="grupo_completo" change="getAllAlumnosPorGrupo(event)"/>
+								
+								
+							</s:HGroup>
+							
+							<s:HGroup width="100%" verticalAlign="middle">
+								
+								<s:Label text="Alumno" fontWeight="bold" width="120" textAlign="right"/>
+								<s:DropDownList width="100%" id="ddlAlumnos" dataProvider="{ingresosModel.listadoAlumnos}" 
+												labelField="alumno" change="traerTodosLosPagosPorAlumno();"/>
+								
+							</s:HGroup>
+							<s:HGroup width="100%" verticalAlign="middle">
+								<s:Label width="120" fontWeight="bold" text="Concepto" textAlign="right"/>
+								<s:DropDownList width="100%" id="ddlConcepto" dataProvider="{ingresosModel.listadoPagos}"
+												labelField="concepto" labelFunction="concatenarConceptosMes" 
+												change="checkRecargo(ddlConcepto.selectedItem.mes_de_pago, numericStepperDiaLimite.value, Number(txtMontoPenalizar.text));"/>
+								
+								
+								
+							</s:HGroup>
+							<s:HGroup verticalAlign="middle">
+								<s:Label width="120" fontWeight="bold" text="Método de pago" textAlign="right"/>
+								<s:RadioButton groupName="gpoTipoPago" id="gpoDepositoBancario" label="Depósito Bancario"/>
+								<s:RadioButton groupName="gpoTipoPago" id="gpoTransferenciaElectronica" label="Transferencia Electrónica"/>
+								<s:RadioButton groupName="gpoTipoPago" id="gpoEfectivo" label="Efectivo" selected="true"/>
+							</s:HGroup>
+							<s:HGroup width="100%" fontWeight="bold" horizontalAlign="right" verticalAlign="middle">
+								<s:Label width="120" text="Referencia Bancaria" textAlign="right"/>
+								<s:TextInput width="100%" id="txtReferencia"/>
+							</s:HGroup>
+							<s:HGroup width="100%" horizontalAlign="right" verticalAlign="middle">
+								<s:Label width="120" fontWeight="bold" text="Observaciones" textAlign="right"/>
+								<s:TextInput width="100%" id="txtObservaciones"/>
+							</s:HGroup>
+
+                            <s:HGroup width="100%" horizontalAlign="right" verticalAlign="middle">
+                               <s:Button label="Estado de cuenta" enabled="{ddlAlumnos.selectedIndex!=-1}"
+										 icon="assets/icons/money_black.png" click="imprimirEstadoDeCuenta()"/>
+                            </s:HGroup>
+							
+						</s:VGroup>
+						
+						<mx:VRule width="1" height="100%"/>
+						<!--Listado de elementos que va a pagar-->
+						<s:VGroup width="330" height="100%" horizontalAlign="right"
+								  verticalAlign="middle">
+							<s:HGroup width="100%" horizontalAlign="right" verticalAlign="middle">
+								<s:Label width="120" fontWeight="bold" text="Fecha de pago" textAlign="right"/>
+								<mx:DateField width="120" id="txtFechaDePago" formatString="YYYY-MM-DD" height="24" textInputStyleName="dateFieldRounded"
+											  monthNames="['Enero', 'Febrero', 'Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']"
+											  dayNames="[D,L,M,M,J,V,S]" yearNavigationEnabled="true" selectedDate="{new Date()}"/>
+							</s:HGroup>
+							<s:HGroup horizontalAlign="right" width="100%" verticalAlign="middle">
+								<s:CheckBox label="¿Condonar recargos?" id="checkBoxCondonar" selected="false" 
+											enabled="{txtRecargos.text !='0'}" change="condonarRecargosChange(event)"/>
+							</s:HGroup>
+							<s:HGroup horizontalAlign="right" width="100%" verticalAlign="middle">
+								<s:Label width="120" color="0xff423a" fontWeight="bold" text="Recargos (+)" textAlign="right" fontSize="14"/>
+								<s:TextInput width="222" id="txtRecargos" enabled="false" height="26" fontSize="14"/>
+							</s:HGroup>
+							<s:HGroup horizontalAlign="right" width="100%" verticalAlign="middle">
+								<s:Label width="120" color="0x28aff" fontWeight="bold" text="Beca (-)" textAlign="right" fontSize="14"/>
+								<s:TextInput width="222" id="txtBeca" enabled="false" height="26" fontSize="14"/>
+							</s:HGroup>
+							<s:HGroup horizontalAlign="right" width="100%" verticalAlign="middle">
+								<s:Label width="120" fontWeight="bold" text="Concepto" textAlign="right" fontSize="14"/>
+								<s:TextInput width="222" id="txtConcepto" enabled="false" height="26" fontSize="14" text="{ddlConcepto.selectedItem.precio_publico}"/>
+							</s:HGroup>
+							<s:HGroup  horizontalAlign="right" width="100%" verticalAlign="middle">
+								<s:Label width="120" color="0x53a603" fontWeight="bold" text="Por Pagar" textAlign="right" fontSize="14"/>
+								<s:TextInput width="222" id="txtPorPagar" enabled="false" height="26" fontSize="14"/>
+							</s:HGroup>
+							<s:HGroup horizontalAlign="right" width="100%" verticalAlign="middle">
+								<s:Label width="120" color="#028aff" fontWeight="bold" text="Su pago" textAlign="right" fontSize="14"/>
+								<s:TextInput width="222" id="txtPago" height="26" fontSize="14 "/>
+							</s:HGroup>
+							<s:HGroup>
+								
+								<s:Button label="Pagar" icon="assets/icons/money_add.png" styleName="primaryButton" fontSize="16" height="36" width="222" enabled="{txtPorPagar.text!='0'}" click="pagarClic()"/>
+							</s:HGroup>
+							
+							
+						</s:VGroup>
+					</s:HGroup>
+					
+					<mx:HRule width="100%" height="1"/>
+					
+					<s:HGroup width="100%" height="50%">
+						<s:DataGrid width="100%" height="100%" dataProvider="{ingresosModel.listadoPagos}" id="dgConceptosDePago">
+							<s:columns>
+								<mx:ArrayList>
+									<s:GridColumn headerText="Concepto" dataField="concepto"/>
+									<s:GridColumn headerText="Mes de pago" dataField="mes_nombre"/>
+									<s:GridColumn headerText="Descuento -" dataField="descuento"/>
+									<s:GridColumn headerText="Recargo +" dataField="recargo"/>
+									<s:GridColumn headerText="Total a pagar" dataField="monto_computado"/>
+									<s:GridColumn headerText="Cantidad pagada" dataField="cantidad_pagada"/>
+									<s:GridColumn headerText="Resta por pagar" dataField="restante_a_pagar"/>
+									<s:GridColumn headerText="" width="77">
+										<s:itemRenderer>
+											<fx:Component>
+												<s:GridItemRenderer>
+													<s:HGroup>
+														<s:Button icon="assets/icons/application_view_detail.png" width="36" click="outerDocument.detalleIngresos(data)"/>
+														<s:Button icon="assets/icons/printer.png" width="36" click="outerDocument.imprimirRecibo(data)"/>
+													</s:HGroup>
+													
+												</s:GridItemRenderer>
+											</fx:Component>
+										</s:itemRenderer>
+									</s:GridColumn>
+								</mx:ArrayList>
+							</s:columns>
+						</s:DataGrid>
+						
+					</s:HGroup>
+					
+				</s:VGroup>
+			</s:NavigatorContent>
+			
+			
+			
+		</mx:ViewStack>
+		
+	</s:Panel>
+
+</components:IngresosBase>

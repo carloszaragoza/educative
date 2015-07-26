@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<components:EmpleadosBase xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						  xmlns:s="library://ns.adobe.com/flex/spark" 
+						  xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:components="us.educative.views.components.*" width="100%" height="100%">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		<mx:StringValidator id="validaRFC" source="{txtRFC}" property="text" requiredFieldError="Escribe el RFC al menos de 10 caracteres"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaNombre" source="{txtNombre}" property="text" requiredFieldError="Escribe el nombre(s) del empleado"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaPaterno" source="{txtPaterno}" property="text" requiredFieldError="Escribe el apellido paterno del empleado"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaMaterno" source="{txtMaterno}" property="text" requiredFieldError="Escribe el apellido materno del empleado"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaDireccion" source="{txtDireccion}" property="text" requiredFieldError="Escribe la dirección"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaCP" source="{txtCP}" property="text" requiredFieldError="Escribe el código postal"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:EmailValidator id="validaCorreo" source="{txtCorreo}" property="text" requiredFieldError="Escribe el correo electrónico"
+							trigger="{btnSave}" triggerEvent="click"/>
+		
+		<mx:StringValidator id="validaTelefono" source="{txtTelefono}" property="text" requiredFieldError="Escribe el telefono correctamente"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaCelular" source="{txtCelular}" property="text" requiredFieldError="Escribe el celular correctamente"
+							trigger="{btnSave}" triggerEvent="click"/>
+	</fx:Declarations>
+	<s:Panel x="0" y="0" width="100%" height="100%" title="Empleados">
+		<s:layout>
+			<s:VerticalLayout gap="1" paddingBottom="5" paddingLeft="5" paddingTop="5" paddingRight="5"/>
+		</s:layout>
+		<s:controlBarContent>
+			<s:Label id="lblInformacion"/>
+		</s:controlBarContent>
+		<s:ButtonBar width="100%" dataProvider="{viewStackContenido}" textAlign="right"/>
+		<mx:ViewStack id="viewStackContenido" width="100%" height="100%">
+			<s:NavigatorContent width="100%" height="100%" label="Registro de empleado">
+				<s:VGroup x="0" y="0" width="100%" height="100%" paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10">
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="RFC" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtRFC" width="200"/>
+						<s:Label text="Fecha de nacimiento" fontWeight="bold" width="120" textAlign="right"/>
+						<mx:DateField id="dateFieldNacimiento" formatString="YYYY-MM-DD" width="120" height="24" textInputStyleName="dateFieldRounded"
+									  monthNames="['Enero', 'Febrero', 'Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']"
+									  dayNames="[D,L,M,M,J,V,S]" yearNavigationEnabled="true"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Empleado" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtNombre" width="100%" prompt="Nombre(s)"/>
+						<s:TextInput id="txtPaterno" width="100%" prompt="Primer apellido"/>
+						<s:TextInput id="txtMaterno" width="100%" prompt="Segundo apellido"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Dirección" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtDireccion" width="100%"/>
+						<s:Label text="CP" fontWeight="bold" width="60" textAlign="right"/>
+						<s:TextInput id="txtCP" width="100%" prompt="Código postal"/>
+					</s:HGroup>
+					
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Teléfono celular" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtCelular" width="50%"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Teléfono casa" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtTelefono" width="50%"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Correo" fontWeight="bold"  width="120" textAlign="right"/>
+						<s:TextInput id="txtCorreo" width="50%"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						
+						<s:Label text="Pérfil" fontWeight="bold"  width="120" textAlign="right"/>
+						<s:DropDownList id="cboPerfil" width="50%" dataProvider="{commonModel.perfilesList}" labelField="perfil"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Grado de estudios" fontWeight="bold"  width="120" textAlign="right"/>
+						<s:DropDownList id="cboEstudios" width="50%" dataProvider="{commonModel.estudiosList}" labelField="label"/>
+						<s:Label text="Horas por semana" fontWeight="bold"  width="120" textAlign="right"/>
+						<s:NumericStepper id="nsHorasSemana" maximum="60" minimum="1"/>
+						<s:Label text="NSS" fontWeight="bold"  width="60" textAlign="right"/>
+						<s:TextInput id="txtNSS" width="50%"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Observaciones" fontWeight="bold"  width="120" textAlign="right"/>
+						<s:TextInput id="txtObservaciones" width="100%"/>
+					</s:HGroup>
+					<s:HGroup width="100%" horizontalAlign="right" paddingBottom="1" paddingLeft="1"
+							  paddingRight="1" paddingTop="1">
+						<s:Button label="Nuevo" icon="assets/icons/application_add.png" click="clearControls()"/>
+
+						<s:Button label="Cancelar" icon="assets/icons/cancel.png" click="clearControls()"/>
+						<s:Button label="{isUpdating?'Actualizar':'Guardar'}" icon="assets/icons/add.png" id="btnSave" styleName="primaryButton"
+								  click="saveSendDataToControllerByEvent(isUpdating)"/>
+						
+					</s:HGroup>
+				</s:VGroup>
+			</s:NavigatorContent>
+			<s:NavigatorContent width="100%" height="100%" label="Buscar un empleado">
+				<s:VGroup width="100%" height="100%" paddingBottom="10" paddingLeft="10"
+						  paddingRight="10" paddingTop="10"> 
+					
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Nombre" fontWeight="bold" textAlign="right"/>
+						<s:TextInput id="txtBusqueda" width="100%"/>
+						<s:Button label="Buscar" icon="assets/icons/find.png" click="buscarClick()"/>
+					</s:HGroup>
+					<s:DataGrid width="100%" height="100%" dataProvider="{empleadoModel.empleadoList}">
+						<s:columns>
+							<s:ArrayList>
+								<s:GridColumn dataField="rfc_empleado" headerText="RFC" width="150"></s:GridColumn>
+								<s:GridColumn dataField="nombre" headerText="Nombre"></s:GridColumn>
+								<s:GridColumn dataField="paterno" headerText="A. Paterno"></s:GridColumn>
+								<s:GridColumn dataField="materno" headerText="A. Materno"></s:GridColumn>
+								<s:GridColumn dataField="telefono_fijo" headerText="Teléfono casa"></s:GridColumn>
+								<s:GridColumn dataField="celular" headerText="Teléfono celular"></s:GridColumn>
+								<s:GridColumn dataField="correo" headerText="Correo"></s:GridColumn>
+								<s:GridColumn headerText="" width="77">
+									<s:itemRenderer>
+										<fx:Component>
+											<s:GridItemRenderer>
+												<s:HGroup>
+													<s:Button icon="assets/icons/delete.png" width="36" click="outerDocument.borrarEmpleado(data)"/>
+													<s:Button icon="assets/icons/application_form_edit.png" width="36" click="outerDocument.modificarEmpleado(data)"/>	
+												</s:HGroup>
+												
+											</s:GridItemRenderer>
+										</fx:Component>
+									</s:itemRenderer>
+								</s:GridColumn>
+							</s:ArrayList>
+						</s:columns>
+					</s:DataGrid>
+				</s:VGroup>
+			</s:NavigatorContent>
+		</mx:ViewStack>
+	</s:Panel>
+	
+</components:EmpleadosBase>

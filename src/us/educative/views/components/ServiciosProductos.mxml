@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<components:ServiciosProductosBase xmlns:fx="http://ns.adobe.com/mxml/2009" 
+								   xmlns:s="library://ns.adobe.com/flex/spark" 
+								   xmlns:mx="library://ns.adobe.com/flex/mx"
+                                   xmlns:components="us.educative.views.components.*"
+                                   width="100%" height="100%">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Panel x="0" y="0" width="100%" height="100%" title="Catálogo de conceptos de pagos">
+		<s:layout>
+			<s:VerticalLayout gap="1" paddingBottom="5" paddingLeft="5" paddingTop="5" paddingRight="5"/>
+		</s:layout>
+		<s:controlBarContent>
+			<s:Label id="lblInformacion"/>
+		</s:controlBarContent>
+		<s:ButtonBar width="100%" dataProvider="{viewStackContenido}" textAlign="right"/>
+		<mx:ViewStack id="viewStackContenido" width="100%" height="100%">
+            <s:NavigatorContent width="100%" height="100%" label="Registro de conceptos">
+                <s:VGroup x="0" y="0" width="100%" height="100%" paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10">
+                    <s:HGroup width="100%" verticalAlign="middle">
+                        <s:Label text="Tipo" fontWeight="bold" width="120" textAlign="right"/>
+                        <s:RadioButton groupName="gpoTipo" id="gpoServicio" label="Servicio"/>
+                        <s:RadioButton groupName="gpoTipo" id="gpoProducto" label="Producto"/>
+						<s:Label text="Clave" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput width="200" id="txtClave"/>
+                    </s:HGroup>
+                    <s:HGroup width="100%" verticalAlign="middle">
+                        <s:Label text="Descripción" fontWeight="bold" width="120" textAlign="right"/>
+                        <s:TextInput width="50%" id="txtConcepto"/>
+                    </s:HGroup>
+                    <s:HGroup width="100%" verticalAlign="middle">
+						<s:Label width="120" fontWeight="bold" text="Nivel educativo" textAlign="right"/>
+						<s:DropDownList width="50%" id="cboNivelEducativo" dataProvider="{nivelEducativoModel.nivelEducativoList}" labelField="nivel"/>
+                    </s:HGroup>
+                    <s:HGroup width="100%" verticalAlign="middle">
+                        <s:Label width="120" fontWeight="bold" text="Precio general" textAlign="right"/>
+                        <s:TextInput width="20%" id="txtPrecioGeneral"/>
+                        
+                    </s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						
+						<s:Label width="120" fontWeight="bold" text="Precio público" textAlign="right"/>
+						<s:TextInput width="20%" id="txtPrecioPublico"/>
+					</s:HGroup>
+                    <s:HGroup width="100%" verticalAlign="middle">
+                        <mx:Spacer width="120"/>
+                        <s:CheckBox selected="false" id="checkBoxDescuento"/>
+                        <mx:Label  text="¿Aplica descuento?" width="130"/>
+                        <s:CheckBox selected="false" id="checkBoxRecargo"/>
+                        <mx:Label  text="¿Aplica recargo?" width="130"/>
+                        <s:CheckBox selected="false" id="checkBoxImpuesto"/>
+                        <mx:Label  text="¿Aplica impuesto?" width="130"/>
+                    </s:HGroup>
+                    <s:HGroup width="100%" verticalAlign="middle">
+                        <mx:Spacer width="120"/>
+                        <s:CheckBox selected="false" id="checkBoxFacturable"/>
+                        <mx:Label  text="¿Facturable?" width="130"/>
+                        <s:CheckBox selected="false" id="checkBoxPagoUnico" change="{hgPagos.visible = !checkBoxPagoUnico.selected}"/>
+                        <mx:Label  text="¿Pago único?" width="130"/>
+                        <s:HGroup id="hgPagos">
+							<mx:Label  text="Número de pagos" width="130"/>
+							<s:NumericStepper minimum="1" maximum="12" width="130" id="numericStepperNumeroDePagos"/>	
+						</s:HGroup>
+						
+                    </s:HGroup>
+                    <s:HGroup width="100%" verticalAlign="middle">
+                        <s:Label width="120" fontWeight="bold" text="Observaciones" textAlign="right"/>
+                        <s:TextArea width="100%" height="50" id="txtObservaciones"/>
+                    </s:HGroup>
+                    <mx:HRule width="100%"/>
+                    <s:HGroup width="100%" horizontalAlign="right" paddingBottom="1" paddingLeft="1"
+                              paddingRight="1" paddingTop="1">
+						<s:Button label="Nuevo" icon="assets/icons/application_add.png" click="clearControls()"/>
+
+                        <s:Button label="Cancelar" icon="assets/icons/cancel.png" id="btnCancel" click="clearControls()"/>
+                        <s:Button label="{isUpdating?'Actualizar':'Guardar'}" styleName="primaryButton" icon="assets/icons/add.png" id="btnSave" click="clickHandlerPagos(isUpdating)"/>
+                    </s:HGroup>
+                </s:VGroup>
+            </s:NavigatorContent>
+			
+			<s:NavigatorContent width="100%" height="100%" label="Listado de conceptos">
+				<s:VGroup width="100%" height="100%" paddingBottom="10" paddingLeft="10"
+						  paddingRight="10" paddingTop="10"> 
+					
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label fontWeight="bold" text="Tipo" textAlign="right"/>
+						<s:DropDownList width="50%" id="ddlTipoServicio" dataProvider="{acTipo}" labelField="tipo"/>
+						<s:Label fontWeight="bold" text="Concepto" textAlign="right"/>
+						<s:TextInput width="50%" id="txtBusqueda"/>
+						<s:Button label="Buscar" icon="assets/icons/find.png" click="buscarPorFiltro()"
+								  enabled="{ddlTipoServicio.selectedIndex != -1}"/>
+					</s:HGroup>
+					<s:DataGrid width="100%" height="100%" dataProvider="{serviciosProductosModel.catalogoPagosList}">
+						<s:columns>
+							<s:ArrayList>
+								<s:GridColumn dataField="clave" headerText="Clave"></s:GridColumn>
+								<s:GridColumn dataField="concepto" headerText="Concepto"></s:GridColumn>
+								<s:GridColumn dataField="precio_general" headerText="Precio"></s:GridColumn>
+								<s:GridColumn dataField="precio_publico" headerText="Precio Público"></s:GridColumn>
+								<s:GridColumn dataField="nivel" headerText="Nivel"></s:GridColumn>
+								<s:GridColumn headerText="" width="77">
+									<s:itemRenderer>
+										<fx:Component>
+											<s:GridItemRenderer>
+												<s:HGroup>
+													<s:Button icon="assets/icons/delete.png" width="36" click="outerDocument.borrar(data)"/>
+													<s:Button icon="assets/icons/application_form_edit.png" width="36" click="outerDocument.modificar(data)"/>
+												</s:HGroup>
+												
+											</s:GridItemRenderer>
+										</fx:Component>
+									</s:itemRenderer>
+								</s:GridColumn>
+							</s:ArrayList>
+						</s:columns>
+					</s:DataGrid>
+				</s:VGroup>
+			</s:NavigatorContent>
+			
+			
+		</mx:ViewStack>
+		
+	</s:Panel>
+</components:ServiciosProductosBase>

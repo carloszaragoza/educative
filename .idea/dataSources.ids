@@ -1,0 +1,1251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - plantel@localhost" uuid="1405cb64-d920-4720-82b3-2769c8afa7ff">
+    <database-info product="MySQL" version="5.6.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="plantel"/>
+    <table name="cat_alumnos" schema="" catalog="plantel" type="TABLE">
+      <column name="id_alumno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="sexo" sqlType="TINYTEXT" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="apaterno" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="amaterno" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="nombre" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="fecha_nac" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="fotografia" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="tel_emergencia" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="alergias" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="enf_precauciones" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="curp" sqlType="VARCHAR" precision="18" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="correo_electronico" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="tipo_sangre" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="status" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="tutor_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fecha_alta" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="matricula" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_alumno"/>
+      <foreign-key name="alumno_tutor" columns="tutor_id" ref-table="cat_padre_tutor" ref-schema="" ref-catalog="plantel" ref-columns="id_tutor" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="calificacion_alumno" table="t_calificaciones" schema="" catalog="plantel" columns="alumno_id"/>
+      <exported-key name="inscripcion_alumno" table="t_detalle_inscripcion" schema="" catalog="plantel" columns="alumno_id"/>
+      <exported-key name="pago_alumno" table="t_registro_pagos" schema="" catalog="plantel" columns="alumno_id"/>
+      <index name="alumno_tutor" unique="false" columns="tutor_id"/>
+    </table>
+    <table name="cat_becas" schema="" catalog="plantel" type="TABLE">
+      <column name="id_beca" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="descripcion_beca" sqlType="VARCHAR" precision="300" scale="0" nullable="true" jdbcType="12"/>
+      <column name="porcentaje" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7"/>
+      <column name="fecha_creacion" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="id_beca"/>
+    </table>
+    <table name="cat_cuentas" schema="" catalog="plantel" type="TABLE">
+      <column name="id_cuenta" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre_cuenta" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="numero_cuenta" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="clabe" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tarjeta" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_cuenta"/>
+      <exported-key name="pago_cuenta" table="t_detalle_pago" schema="" catalog="plantel" columns="cuenta_id"/>
+    </table>
+    <table name="cat_documentos" schema="" catalog="plantel" type="TABLE">
+      <column name="id_documento" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="documento" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="solicitar_original" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="numero_copias" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="otras_especificaciones" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="solicitar_a" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_documento"/>
+      <exported-key name="documemp_catdocumento" table="t_documento_empleado" schema="" catalog="plantel" columns="documento_id"/>
+    </table>
+    <table name="cat_empleados" schema="" catalog="plantel" type="TABLE">
+      <column name="id_empleado" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="rfc_empleado" sqlType="VARCHAR" precision="13" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nombre" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="paterno" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="materno" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fecha_nacimiento" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="fecha_alta" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="direccion" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="telefono_fijo" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="celular" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="correo" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="perfil_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="horas_semana" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="grado_maximo_estudio" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="NSS" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
+      <column name="cp" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_empleado"/>
+      <foreign-key name="empleados_perfil" columns="perfil_id" ref-table="cat_perfiles" ref-schema="" ref-catalog="plantel" ref-columns="id_perfil" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="usuario_empleado" table="cat_usuarios" schema="" catalog="plantel" columns="empleado_id"/>
+      <exported-key name="inscripcion_empleado" table="t_control_inscripcion" schema="" catalog="plantel" columns="empleado_id"/>
+      <exported-key name="docent_empleado" table="t_docente_materia" schema="" catalog="plantel" columns="empleado_id"/>
+      <exported-key name="documento_catempleado" table="t_documento_empleado" schema="" catalog="plantel" columns="empleado_id"/>
+      <exported-key name="horario_empleado" table="t_horario_empleado" schema="" catalog="plantel" columns="emplado_id"/>
+      <index name="empleados_perfil" unique="false" columns="perfil_id"/>
+    </table>
+    <table name="cat_entidades" schema="" catalog="plantel" type="TABLE">
+      <column name="id_entidad" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="entidad" sqlType="VARCHAR" precision="90" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sigla" sqlType="VARCHAR" precision="8" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_entidad"/>
+    </table>
+    <table name="cat_localidades" schema="" catalog="plantel" type="TABLE">
+      <column name="id_localidad" sqlType="VARCHAR" precision="4" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="localidad" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
+      <column name="municipio_id" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="entidad_id" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="entidad_id,municipio_id,id_localidad"/>
+    </table>
+    <table name="cat_materias" schema="" catalog="plantel" type="TABLE">
+      <column name="id_materia" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="materia" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nivel_educativo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tipo_materia" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_materia"/>
+      <foreign-key name="materias_nivel" columns="nivel_educativo_id" ref-table="cat_nivel_educativo" ref-schema="" ref-catalog="plantel" ref-columns="id_nivel_educativo" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="materia_calificacion" table="t_calificaciones" schema="" catalog="plantel" columns="materia_id"/>
+      <exported-key name="docente_materia" table="t_docente_materia" schema="" catalog="plantel" columns="materia_id"/>
+      <exported-key name="horario_materia" table="t_horario_grupo" schema="" catalog="plantel" columns="materia_id"/>
+      <index name="materias_nivel" unique="false" columns="nivel_educativo_id"/>
+    </table>
+    <table name="cat_municipios" schema="" catalog="plantel" type="TABLE">
+      <column name="id_municipio" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="municipio" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="entidad_id" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="entidad_id,id_municipio"/>
+    </table>
+    <table name="cat_nivel_educativo" schema="" catalog="plantel" type="TABLE">
+      <column name="id_nivel_educativo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nivel" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="abreviatura" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="cct" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="id_nivel_educativo"/>
+      <exported-key name="materias_nivel" table="cat_materias" schema="" catalog="plantel" columns="nivel_educativo_id"/>
+      <exported-key name="pagos_nivel" table="cat_producto_servicio" schema="" catalog="plantel" columns="nivel_educativo_id"/>
+      <exported-key name="usuario_nivel" table="cat_usuarios" schema="" catalog="plantel" columns="nivel_educativo_id"/>
+      <exported-key name="nivel_educativo_calif" table="ctrl_calificaciones" schema="" catalog="plantel" columns="nivel_educativo_id"/>
+      <exported-key name="inscripcion_nivell" table="t_control_inscripcion" schema="" catalog="plantel" columns="nivel_educativo_id"/>
+      <exported-key name="horario_nivel" table="t_horario_empleado" schema="" catalog="plantel" columns="nivel_educativo_id"/>
+      <exported-key name="paquete_nivel" table="t_paquete" schema="" catalog="plantel" columns="nivel_educativo_id"/>
+    </table>
+    <table name="cat_padre_tutor" schema="" catalog="plantel" type="TABLE">
+      <column name="id_tutor" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="p_nombre" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="p_paterno" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="p_materno" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="p_telefono" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="p_correo" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="m_nombre" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="m_paterno" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="m_materno" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="m_telefono" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="m_correo" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="direccion" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="localidad_id" sqlType="VARCHAR" precision="4" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="municipio_id" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="entidad_id" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="cp" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="otro_tutor" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="nombre_otro" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="telefono_otro" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="correo_otro" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="familia" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="id_tutor"/>
+      <exported-key name="alumno_tutor" table="cat_alumnos" schema="" catalog="plantel" columns="tutor_id"/>
+      <exported-key name="factura_tutor" table="t_datos_fiscales" schema="" catalog="plantel" columns="tutor_id"/>
+    </table>
+    <table name="cat_perfiles" schema="" catalog="plantel" type="TABLE">
+      <column name="id_perfil" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="perfil" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tipo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_perfil"/>
+      <exported-key name="empleados_perfil" table="cat_empleados" schema="" catalog="plantel" columns="perfil_id"/>
+    </table>
+    <table name="cat_periodo_calif" schema="" catalog="plantel" type="TABLE">
+      <column name="id_periodo_calif" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nivel_educativo_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="periodo_calif" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cat_periodo_califcol" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_periodo_calif"/>
+      <exported-key name="periodocalif_t" table="ctrl_calificaciones" schema="" catalog="plantel" columns="periodo_calif_id"/>
+      <exported-key name="periodo_calificacion" table="t_calificaciones" schema="" catalog="plantel" columns="periodo_calif_id"/>
+      <index name="nivel_educativo_id_UNIQUE" unique="true" columns="nivel_educativo_id"/>
+    </table>
+    <table name="cat_periodos" schema="" catalog="plantel" type="TABLE">
+      <column name="id_periodo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="tipo_periodo" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="nombre" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="fecha_inicial" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="fecha_final" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="status" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id_periodo"/>
+      <exported-key name="pagos_periodo" table="cat_producto_servicio" schema="" catalog="plantel" columns="periodo_id"/>
+      <exported-key name="periodo_calif" table="ctrl_calificaciones" schema="" catalog="plantel" columns="periodo_id"/>
+      <exported-key name="inscripcion_periodo" table="t_control_inscripcion" schema="" catalog="plantel" columns="periodo_id"/>
+      <exported-key name="horario_periodo" table="t_horario_empleado" schema="" catalog="plantel" columns="periodo_id"/>
+      <exported-key name="paquete_periodo" table="t_paquete" schema="" catalog="plantel" columns="periodo_id"/>
+    </table>
+    <table name="cat_producto_servicio" schema="" catalog="plantel" type="TABLE">
+      <column name="id_producto_servicio" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="tipo_pago" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="concepto" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="periodo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nivel_educativo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="precio_general" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="precio_publico" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="aplica_descuento" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="aplica_recargo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="impuesto" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="facturable" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="pago_unico" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="numero_pagos" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="clave" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_producto_servicio"/>
+      <foreign-key name="pagos_nivel" columns="nivel_educativo_id" ref-table="cat_nivel_educativo" ref-schema="" ref-catalog="plantel" ref-columns="id_nivel_educativo" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="pagos_periodo" columns="periodo_id" ref-table="cat_periodos" ref-schema="" ref-catalog="plantel" ref-columns="id_periodo" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="pagos_nivel" unique="false" columns="nivel_educativo_id"/>
+      <index name="pagos_periodo" unique="false" columns="periodo_id"/>
+    </table>
+    <table name="cat_relacion_familiar" schema="" catalog="plantel" type="TABLE">
+      <column name="id_relacion_familiar" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="tipo_relacion" sqlType="VARCHAR" precision="300" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_relacion_familiar"/>
+    </table>
+    <table name="cat_usuarios" schema="" catalog="plantel" type="TABLE">
+      <column name="id_usuario" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="empleado_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nivel_educativo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="privilegio" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="usuario" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="clave_acceso" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="contador_firmas" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="desde_donde_se_firma" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="fue_creado" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id_usuario"/>
+      <foreign-key name="usuario_empleado" columns="empleado_id" ref-table="cat_empleados" ref-schema="" ref-catalog="plantel" ref-columns="id_empleado" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="usuario_nivel" columns="nivel_educativo_id" ref-table="cat_nivel_educativo" ref-schema="" ref-catalog="plantel" ref-columns="id_nivel_educativo" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="inscripcion_usuario" table="t_detalle_inscripcion" schema="" catalog="plantel" columns="usuario_id"/>
+      <exported-key name="pago_usuario" table="t_detalle_pago" schema="" catalog="plantel" columns="usuario_id"/>
+      <exported-key name="documento_usuario" table="t_documento_empleado" schema="" catalog="plantel" columns="usuario_id"/>
+      <exported-key name="horario_usuario" table="t_horario_empleado" schema="" catalog="plantel" columns="usuario_id"/>
+      <exported-key name="pago_usuarios" table="t_registro_pagos" schema="" catalog="plantel" columns="usuario_id"/>
+      <index name="usuario_unico" unique="true" columns="usuario"/>
+      <index name="usuario_empleado" unique="false" columns="empleado_id"/>
+      <index name="usuario_nivel" unique="false" columns="nivel_educativo_id"/>
+    </table>
+    <table name="ctrl_calificaciones" schema="" catalog="plantel" type="TABLE">
+      <column name="periodo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="periodo_calif_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nivel_educativo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fecha_incio_reg" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="fecha_fin_registro" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="registro_activo" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="usuario_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="periodo_id,periodo_calif_id,nivel_educativo_id"/>
+      <foreign-key name="nivel_educativo_calif" columns="nivel_educativo_id" ref-table="cat_nivel_educativo" ref-schema="" ref-catalog="plantel" ref-columns="id_nivel_educativo" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="periodocalif_t" columns="periodo_calif_id" ref-table="cat_periodo_calif" ref-schema="" ref-catalog="plantel" ref-columns="id_periodo_calif" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="periodo_calif" columns="periodo_id" ref-table="cat_periodos" ref-schema="" ref-catalog="plantel" ref-columns="id_periodo" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="nivel_educativo_calif_idx" unique="false" columns="nivel_educativo_id"/>
+      <index name="periodocalif_t_idx" unique="false" columns="periodo_calif_id"/>
+    </table>
+    <table name="t_becas_alumno" schema="" catalog="plantel" type="TABLE">
+      <column name="beca_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="alumno_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="fecha_asignacion" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="400" scale="0" nullable="true" jdbcType="12"/>
+      <column name="vigencia" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="beca_id,alumno_id"/>
+    </table>
+    <table name="t_calificaciones" schema="" catalog="plantel" type="TABLE">
+      <column name="alumno_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="control_inscripcion_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="calificacion" sqlType="DECIMAL" precision="2" scale="0" nullable="true" jdbcType="3"/>
+      <column name="materia_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="periodo_calif_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="observaciones" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="usuario_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="producto_servicio_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="periodo_calif_id,alumno_id,control_inscripcion_id,materia_id"/>
+      <foreign-key name="calificacion_alumno" columns="alumno_id" ref-table="cat_alumnos" ref-schema="" ref-catalog="plantel" ref-columns="id_alumno" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="inscripcion_calificacion" columns="control_inscripcion_id" ref-table="t_control_inscripcion" ref-schema="" ref-catalog="plantel" ref-columns="id_control_inscripcion" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="materia_calificacion" columns="materia_id" ref-table="cat_materias" ref-schema="" ref-catalog="plantel" ref-columns="id_materia" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="periodo_calificacion" columns="periodo_calif_id" ref-table="cat_periodo_calif" ref-schema="" ref-catalog="plantel" ref-columns="id_periodo_calif" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="calificacion_alumno" unique="false" columns="alumno_id"/>
+      <index name="inscripcion_calificacion" unique="false" columns="control_inscripcion_id"/>
+      <index name="materia_calificacion" unique="false" columns="materia_id"/>
+    </table>
+    <table name="t_control_inscripcion" schema="" catalog="plantel" type="TABLE">
+      <column name="id_control_inscripcion" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="periodo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nivel_educativo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="grado" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="grupo" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="empleado_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_control_inscripcion"/>
+      <foreign-key name="inscripcion_empleado" columns="empleado_id" ref-table="cat_empleados" ref-schema="" ref-catalog="plantel" ref-columns="id_empleado" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="inscripcion_nivell" columns="nivel_educativo_id" ref-table="cat_nivel_educativo" ref-schema="" ref-catalog="plantel" ref-columns="id_nivel_educativo" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="inscripcion_periodo" columns="periodo_id" ref-table="cat_periodos" ref-schema="" ref-catalog="plantel" ref-columns="id_periodo" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="inscripcion_calificacion" table="t_calificaciones" schema="" catalog="plantel" columns="control_inscripcion_id"/>
+      <exported-key name="detalleinscrip_control" table="t_detalle_inscripcion" schema="" catalog="plantel" columns="control_inscripcion_id"/>
+      <exported-key name="docente_inscripcion" table="t_docente_materia" schema="" catalog="plantel" columns="control_inscripcion_id"/>
+      <exported-key name="horario_inscripcion" table="t_horario_grupo" schema="" catalog="plantel" columns="control_inscripcion_id"/>
+      <exported-key name="pago_inscripcion" table="t_registro_pagos" schema="" catalog="plantel" columns="control_inscripcion_id"/>
+      <index name="grupo_unico" unique="true" columns="periodo_id,nivel_educativo_id,grado,grupo,empleado_id"/>
+      <index name="inscripcion_empleado" unique="false" columns="empleado_id"/>
+      <index name="inscripcion_nivell" unique="false" columns="nivel_educativo_id"/>
+    </table>
+    <table name="t_datos_fiscales" schema="" catalog="plantel" type="TABLE">
+      <column name="tutor_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="rfc_factura" sqlType="VARCHAR" precision="13" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="direccion" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="localidad_id" sqlType="VARCHAR" precision="4" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="municipio_id" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="entidad_id" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="cp" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="razon_social" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="tutor_id,rfc_factura"/>
+      <foreign-key name="factura_tutor" columns="tutor_id" ref-table="cat_padre_tutor" ref-schema="" ref-catalog="plantel" ref-columns="id_tutor" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="t_detalle_inscripcion" schema="" catalog="plantel" type="TABLE">
+      <column name="control_inscripcion_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="alumno_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nivel_ingles" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="taller_materia" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="usuario_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="control_inscripcion_id,alumno_id"/>
+      <foreign-key name="detalleinscrip_control" columns="control_inscripcion_id" ref-table="t_control_inscripcion" ref-schema="" ref-catalog="plantel" ref-columns="id_control_inscripcion" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="inscripcion_alumno" columns="alumno_id" ref-table="cat_alumnos" ref-schema="" ref-catalog="plantel" ref-columns="id_alumno" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="inscripcion_usuario" columns="usuario_id" ref-table="cat_usuarios" ref-schema="" ref-catalog="plantel" ref-columns="id_usuario" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="unico_alumno_ciclo" unique="true" columns="alumno_id,control_inscripcion_id"/>
+      <index name="inscripcion_usuario" unique="false" columns="usuario_id"/>
+    </table>
+    <table name="t_detalle_pago" schema="" catalog="plantel" type="TABLE">
+      <column name="registro_pago_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="numero_pago" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="mes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="fecha_pago" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="fecha_registro" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="monto_de_pago" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="referencia" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cuenta_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="usuario_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="metodo_de_pago" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="registro_pago_id,numero_pago"/>
+      <foreign-key name="detallepago_registro" columns="registro_pago_id" ref-table="t_registro_pagos" ref-schema="" ref-catalog="plantel" ref-columns="id_registro_pago" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="pago_cuenta" columns="cuenta_id" ref-table="cat_cuentas" ref-schema="" ref-catalog="plantel" ref-columns="id_cuenta" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="pago_usuario" columns="usuario_id" ref-table="cat_usuarios" ref-schema="" ref-catalog="plantel" ref-columns="id_usuario" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="pago_cuenta" unique="false" columns="cuenta_id"/>
+      <index name="pago_usuario" unique="false" columns="usuario_id"/>
+    </table>
+    <table name="t_detalle_paquete" schema="" catalog="plantel" type="TABLE">
+      <column name="paquete_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="producto_servicio_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cantidad" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7"/>
+      <primary-key name="PRIMARY" columns="paquete_id,producto_servicio_id"/>
+      <foreign-key name="paquete_detalle" columns="paquete_id" ref-table="t_paquete" ref-schema="" ref-catalog="plantel" ref-columns="id_paquete" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="t_docente_materia" schema="" catalog="plantel" type="TABLE">
+      <column name="empleado_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="control_inscripcion_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="materia_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="usuario_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="empleado_id,control_inscripcion_id,materia_id"/>
+      <foreign-key name="docente_inscripcion" columns="control_inscripcion_id" ref-table="t_control_inscripcion" ref-schema="" ref-catalog="plantel" ref-columns="id_control_inscripcion" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="docente_materia" columns="materia_id" ref-table="cat_materias" ref-schema="" ref-catalog="plantel" ref-columns="id_materia" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="docent_empleado" columns="empleado_id" ref-table="cat_empleados" ref-schema="" ref-catalog="plantel" ref-columns="id_empleado" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="docente_inscripcion" unique="false" columns="control_inscripcion_id"/>
+      <index name="docente_materia" unique="false" columns="materia_id"/>
+    </table>
+    <table name="t_documento_empleado" schema="" catalog="plantel" type="TABLE">
+      <column name="empleado_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="documento_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="entregado" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="observaciones" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="usuario_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="empleado_id,documento_id"/>
+      <foreign-key name="documemp_catdocumento" columns="documento_id" ref-table="cat_documentos" ref-schema="" ref-catalog="plantel" ref-columns="id_documento" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="documento_catempleado" columns="empleado_id" ref-table="cat_empleados" ref-schema="" ref-catalog="plantel" ref-columns="id_empleado" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="documento_usuario" columns="usuario_id" ref-table="cat_usuarios" ref-schema="" ref-catalog="plantel" ref-columns="id_usuario" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="documemp_catdocumento" unique="false" columns="documento_id"/>
+      <index name="documento_usuario" unique="false" columns="usuario_id"/>
+    </table>
+    <table name="t_egresos" schema="" catalog="plantel" type="TABLE">
+      <column name="id_egreso" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="tipo_egreso" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1" remarks="ZGVwb3NpdG8sIGVmZWN0aXZvLCB0cmFuc2ZlcmVuY2lhLCBldGMu"/>
+      <column name="cuenta_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="cmVmZXJlbmNpYSBkZWwgY2F0YWxvZ28gZGUgY3VlbnRhcw=="/>
+      <column name="comprobante" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="concepto" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
+      <column name="monto" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="a_nombre" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
+      <column name="fecha_egreso" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="fecha_registro" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="usuario_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="categoria_egreso" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12" remarks="bm9taW5hLCBtYW50ZW5pbWllbnRvLCBtYXRlcmlhbCB5IGVxdWlwbywgZXZlbnRvcyBlc3BlY2lhbGVz"/>
+      <primary-key name="PRIMARY" columns="id_egreso"/>
+    </table>
+    <table name="t_entrada_inventario" schema="" catalog="plantel" type="TABLE">
+      <column name="id_entrada_inventario" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="pago_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="cantidad_entrada" sqlType="DECIMAL" precision="10" scale="2" nullable="true" jdbcType="3" remarks="Q3VhbnRvcyBlbnRyYW4gYWwgaW52ZW50YXJpbw=="/>
+      <column name="fecha_entrada" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="tipo_entrada" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="300" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_entrada_inventario"/>
+    </table>
+    <table name="t_horario_empleado" schema="" catalog="plantel" type="TABLE">
+      <column name="emplado_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="periodo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nivel_educativo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dia" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="hora_entrada" sqlType="TIME" precision="8" scale="0" nullable="false" jdbcType="92"/>
+      <column name="hora_salida" sqlType="TIME" precision="8" scale="0" nullable="false" jdbcType="92"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="usuario_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="emplado_id,periodo_id,nivel_educativo_id,dia"/>
+      <foreign-key name="horario_empleado" columns="emplado_id" ref-table="cat_empleados" ref-schema="" ref-catalog="plantel" ref-columns="id_empleado" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="horario_nivel" columns="nivel_educativo_id" ref-table="cat_nivel_educativo" ref-schema="" ref-catalog="plantel" ref-columns="id_nivel_educativo" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="horario_periodo" columns="periodo_id" ref-table="cat_periodos" ref-schema="" ref-catalog="plantel" ref-columns="id_periodo" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="horario_usuario" columns="usuario_id" ref-table="cat_usuarios" ref-schema="" ref-catalog="plantel" ref-columns="id_usuario" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="horario_nivel" unique="false" columns="nivel_educativo_id"/>
+      <index name="horario_periodo" unique="false" columns="periodo_id"/>
+      <index name="horario_usuario" unique="false" columns="usuario_id"/>
+    </table>
+    <table name="t_horario_grupo" schema="" catalog="plantel" type="TABLE">
+      <column name="control_inscripcion_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dia" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="hora" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="materia_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="control_inscripcion_id,dia,hora"/>
+      <foreign-key name="horario_inscripcion" columns="control_inscripcion_id" ref-table="t_control_inscripcion" ref-schema="" ref-catalog="plantel" ref-columns="id_control_inscripcion" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="horario_materia" columns="materia_id" ref-table="cat_materias" ref-schema="" ref-catalog="plantel" ref-columns="id_materia" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="horario_materia" unique="false" columns="materia_id"/>
+    </table>
+    <table name="t_otros_ingresos" schema="" catalog="plantel" type="TABLE">
+      <column name="id_ingreso" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="tipo_ingreso" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1" remarks="RGVwb3NpdG8sIGVmZWN0aXZvLCB0cmFuc2ZlcmVuY2lh"/>
+      <column name="cuenta_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="ZGVsIGNhdGFsb2dvIGRlIGN1ZW50YXM="/>
+      <column name="referencia" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" remarks="Y29tcHJvYmFudGUgZGUgcGFnbywgcmVjaWJvIGRlIGxhIGVzY3VlbGEsIG7Dum1lcm8="/>
+      <column name="concepto" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12" remarks="aW5kaWNhciBhIHF1ZSBzZSByZWZpZXJlIG8gZWwgbW90aXZvIGRlbCBpbmdyZXNv"/>
+      <column name="monto" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="quien_realizo" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" remarks="ZGUgcXVpZW4gc2UgcmVjaWJpw7MgZWwgbW9udG8gZGVsIGluZ3Jlc28="/>
+      <column name="fecha_ingreso" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="fecha_registro" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="usuario_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_ingreso"/>
+    </table>
+    <table name="t_paquete" schema="" catalog="plantel" type="TABLE">
+      <column name="id_paquete" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="periodo_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="nivel_educativo_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="nombre_paquete" sqlType="VARCHAR" precision="70" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_paquete"/>
+      <foreign-key name="paquete_nivel" columns="nivel_educativo_id" ref-table="cat_nivel_educativo" ref-schema="" ref-catalog="plantel" ref-columns="id_nivel_educativo" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="paquete_periodo" columns="periodo_id" ref-table="cat_periodos" ref-schema="" ref-catalog="plantel" ref-columns="id_periodo" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="paquete_detalle" table="t_detalle_paquete" schema="" catalog="plantel" columns="paquete_id"/>
+      <index name="paquete_nivel_idx" unique="false" columns="nivel_educativo_id"/>
+      <index name="paquete_periodo_idx" unique="false" columns="periodo_id"/>
+    </table>
+    <table name="t_plan_pagos" schema="" catalog="plantel" type="TABLE">
+      <column name="id_plan_pagos" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="plan" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="nivel_educativo_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id_plan_pagos"/>
+    </table>
+    <table name="t_plan_pagos_detalle" schema="" catalog="plantel" type="TABLE">
+      <column name="id_plan_pagos" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_producto_servicio" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="mes" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <index name="fk_producto_servicio_idx" unique="false" columns="id_producto_servicio"/>
+    </table>
+    <table name="t_registro_pagos" schema="" catalog="plantel" type="TABLE">
+      <column name="id_registro_pago" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="control_inscripcion_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="alumno_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="producto_servicio_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="descuento" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="tipo_descuento" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cantidad_por_pagar" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="usuario_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="mes_de_pago" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="recargo" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="tipo_recargo" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cantidad_pagada" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <primary-key name="PRIMARY" columns="id_registro_pago"/>
+      <foreign-key name="pago_alumno" columns="alumno_id" ref-table="cat_alumnos" ref-schema="" ref-catalog="plantel" ref-columns="id_alumno" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="pago_inscripcion" columns="control_inscripcion_id" ref-table="t_control_inscripcion" ref-schema="" ref-catalog="plantel" ref-columns="id_control_inscripcion" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="pago_usuarios" columns="usuario_id" ref-table="cat_usuarios" ref-schema="" ref-catalog="plantel" ref-columns="id_usuario" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="detallepago_registro" table="t_detalle_pago" schema="" catalog="plantel" columns="registro_pago_id"/>
+      <index name="pago_alumno" unique="false" columns="alumno_id"/>
+      <index name="pago_inscripcion" unique="false" columns="control_inscripcion_id"/>
+      <index name="pago_usuarios" unique="false" columns="usuario_id"/>
+    </table>
+    <table name="t_salida_inventario" schema="" catalog="plantel" type="TABLE">
+      <column name="id_salida_inventario" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="pago_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="cantidad_salida" sqlType="DECIMAL" precision="10" scale="2" nullable="true" jdbcType="3"/>
+      <column name="fecha_salida" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="tipo_salida" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="300" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_salida_inventario"/>
+    </table>
+    <table name="util_padres_recibo" schema="" catalog="plantel" type="VIEW">
+      <column name="papa" sqlType="VARCHAR" precision="152" scale="0" nullable="true" jdbcType="12"/>
+      <column name="direccion" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="localidad" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
+      <column name="municipio" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="entidad" sqlType="VARCHAR" precision="90" scale="0" nullable="true" jdbcType="12"/>
+      <column name="p_telefono" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="p_correo" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="id_alumno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="id_tutor" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+    </table>
+    <table name="util_ubicaciones" schema="" catalog="plantel" type="VIEW">
+      <column name="id_localidad" sqlType="VARCHAR" precision="4" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="localidad" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
+      <column name="id_municipio" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="municipio" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="id_entidad" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="entidad" sqlType="VARCHAR" precision="90" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="v_alumno_inscripcion" schema="" catalog="plantel" type="VIEW">
+      <column name="alumno" sqlType="VARCHAR" precision="162" scale="0" nullable="true" jdbcType="12"/>
+      <column name="curp" sqlType="VARCHAR" precision="18" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="id_control_inscripcion" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="periodo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nivel_educativo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="alumno_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="porcentaje" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="vigencia" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+    </table>
+    <table name="v_alumnos" schema="" catalog="plantel" type="VIEW">
+      <column name="id_alumno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="sexo" sqlType="TINYTEXT" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="apaterno" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="amaterno" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="nombre" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="fecha_nac" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="fotografia" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="tel_emergencia" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="alergias" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="enf_precauciones" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="curp" sqlType="VARCHAR" precision="18" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="correo_electronico" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="tipo_sangre" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="status" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="tutor_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fecha_alta" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="matricula" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="familia" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+    </table>
+    <table name="v_becas_alumno" schema="" catalog="plantel" type="VIEW">
+      <column name="beca_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="alumno_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="fecha_asignacion" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="400" scale="0" nullable="true" jdbcType="12"/>
+      <column name="vigencia" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="id_beca" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="descripcion_beca" sqlType="VARCHAR" precision="300" scale="0" nullable="true" jdbcType="12"/>
+      <column name="porcentaje" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7"/>
+      <column name="fecha_creacion" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+    </table>
+    <table name="v_conceptos" schema="" catalog="plantel" type="VIEW">
+      <column name="id_producto_servicio" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="tipo_pago" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tipo" sqlType="VARCHAR" precision="8" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="concepto" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_periodo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="tipo_periodo" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="nombre_periodo" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="id_nivel_educativo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="nivel" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="abreviatura" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="cct" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="precio_general" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="precio_publico" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="aplica_descuento" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="aplica_recargo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="impuesto" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="facturable" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="pago_unico" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="numero_pagos" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="clave" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="v_control_inscripcion" schema="" catalog="plantel" type="VIEW">
+      <column name="id_control_inscripcion" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="id_periodo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="periodo" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="tipo_periodo" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="grado" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="grupo" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="id_nivel_educativo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="nivel" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="cct" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="id_empleado" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="rfc_empleado" sqlType="VARCHAR" precision="13" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nombre_empleado" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="paterno" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="materno" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nombre_completo" sqlType="VARCHAR" precision="182" scale="0" nullable="true" jdbcType="12"/>
+      <column name="grupo_completo" sqlType="VARCHAR" precision="67" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="v_pagos" schema="" catalog="plantel" type="VIEW">
+      <column name="id_producto_servicio" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="tipo_pago" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tipo" sqlType="VARCHAR" precision="8" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="concepto" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_periodo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="tipo_periodo" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="nombre_periodo" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="id_nivel_educativo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="nivel" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="abreviatura" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="cct" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="precio_general" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="precio_publico" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="aplica_descuento" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="aplica_recargo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="impuesto" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="facturable" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="pago_unico" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="numero_pagos" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="400" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="clave" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="v_pagos_alumno" schema="" catalog="plantel" type="VIEW">
+      <column name="id_registro_pago" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="id_control_inscripcion" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="id_periodo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="periodo" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="tipo_periodo" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="grado" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="grupo" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="id_nivel_educativo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="nivel" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="grupo_completo" sqlType="VARCHAR" precision="67" scale="0" nullable="true" jdbcType="12"/>
+      <column name="id_alumno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="curp" sqlType="VARCHAR" precision="18" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="nombre" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="apaterno" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="amaterno" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="id_producto_servicio" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="concepto" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="precio_general" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="precio_publico" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="cantidad_por_pagar" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="cantidad_pagada" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="numero_pago" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="mes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="fecha_pago" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="fecha_registro" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="monto" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="recargo" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="tipo_recargo" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="referencia" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cuenta_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nombre_cuenta" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="observaciones" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="usuario_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="metodo_de_pago" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="mes_nombre" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="folio" sqlType="VARCHAR" precision="18" scale="0" nullable="true" jdbcType="12"/>
+      <column name="metodo" sqlType="VARCHAR" precision="13" scale="0" nullable="true" jdbcType="12"/>
+      <column name="impuesto" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+    </table>
+    <table name="v_registro_pagos" schema="" catalog="plantel" type="VIEW">
+      <column name="control_inscripcion_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="mes_de_pago" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="cantidad_pagada" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="id_registro_pago" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="alumno_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cantidad_por_pagar" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="periodo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="v_registro_pagos_plan" schema="" catalog="plantel" type="VIEW">
+      <column name="id_registro_pago" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="id_control_inscripcion" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="id_periodo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="periodo" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="tipo_periodo" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="grado" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <column name="grupo" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="id_nivel_educativo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="nivel" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="grupo_completo" sqlType="VARCHAR" precision="67" scale="0" nullable="true" jdbcType="12"/>
+      <column name="id_alumno" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="curp" sqlType="VARCHAR" precision="18" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="nombre" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="apaterno" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="amaterno" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="id_producto_servicio" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="concepto" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12"/>
+      <column name="precio_general" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="precio_publico" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="cantidad_por_pagar" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="cantidad_pagada" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="recargo" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="tipo_recargo" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="mes_de_pago" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="mes_nombre" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="descuento" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="tipo_descuento" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="monto_computado" sqlType="DECIMAL" precision="12" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="restante_a_pagar" sqlType="DECIMAL" precision="13" scale="2" nullable="false" jdbcType="3" def="MC4wMA=="/>
+      <column name="porcentaje" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7"/>
+      <column name="aplica_recargo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="aplica_descuento" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="impuesto" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+    </table>
+    <procedure name="act_alumno" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idalum" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="sex" sqlType="TINYTEXT" precision="255" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+        <parameter name="paterno" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="materno" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="nombre" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="fecha" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" type="1" index="6"/>
+        <parameter name="foto" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="7"/>
+        <parameter name="emergencia" sqlType="VARCHAR " precision="25" scale="0" nullable="true" jdbcType="1111" type="1" index="8"/>
+        <parameter name="alergia" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12" type="1" index="9"/>
+        <parameter name="enf" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12" type="1" index="10"/>
+        <parameter name="curp" sqlType="VARCHAR" precision="18" scale="0" nullable="true" jdbcType="12" type="1" index="11"/>
+        <parameter name="correo" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12" type="1" index="12"/>
+        <parameter name="sangre" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12" type="1" index="13"/>
+        <parameter name="stat" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" type="1" index="14"/>
+        <parameter name="tutor" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="15"/>
+        <parameter name="alta" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" type="1" index="16"/>
+        <parameter name="datomatricula" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="17"/>
+      </prototype>
+    </procedure>
+    <procedure name="act_datosfiscales" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="turor" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="rfc" sqlType="VARCHAR" precision="13" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+        <parameter name="dir" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="localidad" sqlType="VARCHAR" precision="4" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="municipio" sqlType="VARCHAR" precision="3" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="entidad" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" type="1" index="6"/>
+        <parameter name="codpos" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12" type="1" index="7"/>
+        <parameter name="razon" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="8"/>
+      </prototype>
+    </procedure>
+    <procedure name="act_detalleinsc" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="control" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="alumno" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="nivel" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="taller" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="4"/>
+        <parameter name="observa" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="usuario" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="6"/>
+      </prototype>
+    </procedure>
+    <procedure name="act_detallepago" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="registro" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="numero" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" type="1" index="2"/>
+        <parameter name="nmes" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="fpago" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" type="1" index="4"/>
+        <parameter name="fregistro" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" type="1" index="5"/>
+        <parameter name="cant" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7" type="1" index="6"/>
+        <parameter name="recar" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" type="1" index="7"/>
+        <parameter name="tipo_rec" sqlType="VARCHAR " precision="1" scale="0" nullable="true" jdbcType="1111" type="1" index="8"/>
+        <parameter name="can_rec" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7" type="1" index="9"/>
+        <parameter name="refer" sqlType="VARCHAR " precision="150" scale="0" nullable="true" jdbcType="1111" type="1" index="10"/>
+        <parameter name="cuenta" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="11"/>
+        <parameter name="observa" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12" type="1" index="12"/>
+        <parameter name="usua" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="13"/>
+      </prototype>
+    </procedure>
+    <procedure name="act_docentemateria" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="empleado" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="control" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="materia" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="observa" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="stat" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="usua" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="6"/>
+      </prototype>
+    </procedure>
+    <procedure name="act_documentoemp" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="empleado" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="documento" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="entrega" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" type="1" index="3"/>
+        <parameter name="observa" sqlType="VARCHAR " precision="200" scale="0" nullable="true" jdbcType="1111" type="1" index="4"/>
+        <parameter name="usua" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="5"/>
+      </prototype>
+    </procedure>
+    <procedure name="act_empleado" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idemp" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="rfc" sqlType="VARCHAR" precision="13" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+        <parameter name="nom" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="pat" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="mat" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="fecnac" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" type="1" index="6"/>
+        <parameter name="fecalta" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" type="1" index="7"/>
+        <parameter name="dir" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="8"/>
+        <parameter name="tefijo" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12" type="1" index="9"/>
+        <parameter name="cel" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" type="1" index="10"/>
+        <parameter name="mail" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="11"/>
+        <parameter name="perfil" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="12"/>
+        <parameter name="hrs" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" type="1" index="13"/>
+        <parameter name="gdo" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="14"/>
+        <parameter name="numss" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" type="1" index="15"/>
+        <parameter name="obs" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12" type="1" index="16"/>
+      </prototype>
+    </procedure>
+    <procedure name="act_horarioemp" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="empleado" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="periodo" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="nivel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="sdia" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="hentra" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92" type="1" index="5"/>
+        <parameter name="hsal" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92" type="1" index="6"/>
+        <parameter name="observa" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="7"/>
+        <parameter name="usua" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="8"/>
+      </prototype>
+    </procedure>
+    <procedure name="act_padretutor" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idpadre" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="pnombre" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+        <parameter name="ppaterno" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="pmaterno" sqlType="VARCHAR " precision="50" scale="0" nullable="true" jdbcType="1111" type="1" index="4"/>
+        <parameter name="ptelefono" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="pcorreo" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="6"/>
+        <parameter name="mnombre" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="7"/>
+        <parameter name="mpaterno" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="8"/>
+        <parameter name="mmaterno" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="9"/>
+        <parameter name="mtelefono" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="10"/>
+        <parameter name="mcorreo" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="11"/>
+        <parameter name="dir" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12" type="1" index="12"/>
+        <parameter name="localidad" sqlType="VARCHAR" precision="4" scale="0" nullable="true" jdbcType="12" type="1" index="13"/>
+        <parameter name="municipio" sqlType="VARCHAR" precision="3" scale="0" nullable="true" jdbcType="12" type="1" index="14"/>
+        <parameter name="entidad" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" type="1" index="15"/>
+        <parameter name="codpos" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12" type="1" index="16"/>
+        <parameter name="tutor" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" type="1" index="17"/>
+        <parameter name="nomotro" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="18"/>
+        <parameter name="telotro" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" type="1" index="19"/>
+        <parameter name="mail_otro" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="20"/>
+      </prototype>
+    </procedure>
+    <procedure name="act_tcontrol" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idcontrol" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="periodo" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="nivel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="gdo" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="gpo" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="emp" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="6"/>
+      </prototype>
+    </procedure>
+    <procedure name="act_usuario" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idusua" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="empleado" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="nivel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="privilegio" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="4"/>
+        <parameter name="nomusua" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="clave" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="6"/>
+        <parameter name="contador" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="7"/>
+        <parameter name="desde" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" type="1" index="8"/>
+        <parameter name="creado" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" type="1" index="9"/>
+      </prototype>
+    </procedure>
+    <procedure name="borra_alumno" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idalum" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="borra_datosfis" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="tutor" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="borra_detallepago" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="registro" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="numero" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="borra_empdocumento" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="empleaod" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="doc" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="borra_empleado" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idemp" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="borra_horarioemp" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="empleado" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="periodo" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="nivel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="sdia" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+      </prototype>
+    </procedure>
+    <procedure name="borra_padretutor" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idpadre" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="borra_pago" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="_registro_pago_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="_numero_pago" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="borra_tcontrol" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idcontrol" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="borra_usuario" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="usua" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="chart_cantidad_sexo" schema="" catalog="plantel" type="1"/>
+    <procedure name="incre_usuario" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="usua" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="ins_alumno" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="sex" sqlType="TINYTEXT" precision="255" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
+        <parameter name="paterno" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+        <parameter name="materno" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="nombre" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="fecha" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" type="1" index="5"/>
+        <parameter name="foto" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="6"/>
+        <parameter name="emergencia" sqlType="VARCHAR " precision="25" scale="0" nullable="true" jdbcType="1111" type="1" index="7"/>
+        <parameter name="alergia" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12" type="1" index="8"/>
+        <parameter name="enf" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12" type="1" index="9"/>
+        <parameter name="datocurp" sqlType="VARCHAR" precision="18" scale="0" nullable="true" jdbcType="12" type="1" index="10"/>
+        <parameter name="correo" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12" type="1" index="11"/>
+        <parameter name="sangre" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12" type="1" index="12"/>
+        <parameter name="stat" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" type="1" index="13"/>
+        <parameter name="tutor" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="14"/>
+        <parameter name="alta" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" type="1" index="15"/>
+        <parameter name="datomatricula" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="16"/>
+      </prototype>
+    </procedure>
+    <procedure name="ins_concepto_alumno" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="_control_inscripcion_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="_alumno_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="_id_producto_servicio" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="_usuario_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="4"/>
+        <parameter name="_mes_de_pago" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="5"/>
+      </prototype>
+    </procedure>
+    <procedure name="ins_datosfiscales" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="turor" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="rfc" sqlType="VARCHAR" precision="13" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+        <parameter name="dir" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="localidad" sqlType="VARCHAR" precision="4" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="municipio" sqlType="VARCHAR" precision="3" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="entidad" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" type="1" index="6"/>
+        <parameter name="codpos" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12" type="1" index="7"/>
+        <parameter name="razon" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="8"/>
+      </prototype>
+    </procedure>
+    <procedure name="ins_detalleinsc" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="control" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="alumno" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="nivel" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="taller" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="4"/>
+        <parameter name="observa" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="usuario" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="6"/>
+      </prototype>
+    </procedure>
+    <procedure name="ins_detallepago" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="registro" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="numero" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" type="1" index="2"/>
+        <parameter name="nmes" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="fpago" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" type="1" index="4"/>
+        <parameter name="fregistro" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" type="1" index="5"/>
+        <parameter name="cant" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7" type="1" index="6"/>
+        <parameter name="recar" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" type="1" index="7"/>
+        <parameter name="tipo_rec" sqlType="VARCHAR " precision="1" scale="0" nullable="true" jdbcType="1111" type="1" index="8"/>
+        <parameter name="can_rec" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7" type="1" index="9"/>
+        <parameter name="refer" sqlType="VARCHAR " precision="150" scale="0" nullable="true" jdbcType="1111" type="1" index="10"/>
+        <parameter name="cuenta" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="11"/>
+        <parameter name="observa" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12" type="1" index="12"/>
+        <parameter name="usua" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="13"/>
+      </prototype>
+    </procedure>
+    <procedure name="ins_docempleado" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="empleado" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="documento" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="entrega" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" type="1" index="3"/>
+        <parameter name="observa" sqlType="VARCHAR " precision="200" scale="0" nullable="true" jdbcType="1111" type="1" index="4"/>
+        <parameter name="usua" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="5"/>
+      </prototype>
+    </procedure>
+    <procedure name="ins_docentemateria" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="empleado" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="control" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="materia" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="observa" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="stat" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="usua" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="6"/>
+      </prototype>
+    </procedure>
+    <procedure name="ins_horarioemp" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="empleado" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="periodo" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="nivel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="sdia" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="hentra" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92" type="1" index="5"/>
+        <parameter name="hsal" sqlType="TIME" precision="8" scale="0" nullable="true" jdbcType="92" type="1" index="6"/>
+        <parameter name="observa" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="7"/>
+        <parameter name="usua" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="8"/>
+      </prototype>
+    </procedure>
+    <procedure name="ins_padre_tutor" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="pnombre" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
+        <parameter name="ppaterno" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+        <parameter name="pmaterno" sqlType="VARCHAR " precision="50" scale="0" nullable="true" jdbcType="1111" type="1" index="3"/>
+        <parameter name="ptelefono" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="pcorreo" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="mnombre" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="6"/>
+        <parameter name="mpaterno" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="7"/>
+        <parameter name="mmaterno" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="8"/>
+        <parameter name="mtelefono" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="9"/>
+        <parameter name="mcorreo" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="10"/>
+        <parameter name="dir" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12" type="1" index="11"/>
+        <parameter name="localidad" sqlType="VARCHAR" precision="4" scale="0" nullable="true" jdbcType="12" type="1" index="12"/>
+        <parameter name="municipio" sqlType="VARCHAR" precision="3" scale="0" nullable="true" jdbcType="12" type="1" index="13"/>
+        <parameter name="entidad" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" type="1" index="14"/>
+        <parameter name="codpos" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12" type="1" index="15"/>
+        <parameter name="tutor" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" type="1" index="16"/>
+        <parameter name="nomotro" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" type="1" index="17"/>
+        <parameter name="telotro" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" type="1" index="18"/>
+        <parameter name="mail_otro" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="19"/>
+      </prototype>
+    </procedure>
+    <procedure name="ins_pago" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="_id_registro_pago" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="_mes_de_pago" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="_monto_de_pago" sqlType="DECIMAL" precision="10" scale="2" nullable="true" jdbcType="3" type="1" index="3"/>
+        <parameter name="_fecha_pago" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" type="1" index="4"/>
+        <parameter name="_referencia" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="_observaciones" sqlType="VARCHAR" precision="250" scale="0" nullable="true" jdbcType="12" type="1" index="6"/>
+        <parameter name="_cuenta_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="7"/>
+        <parameter name="_id_usuario" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="8"/>
+        <parameter name="_metodo_de_pago" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12" type="1" index="9"/>
+        <parameter name="_recargo" sqlType="DECIMAL" precision="10" scale="2" nullable="true" jdbcType="3" type="1" index="10"/>
+        <parameter name="_descuento" sqlType="DECIMAL" precision="10" scale="2" nullable="true" jdbcType="3" type="1" index="11"/>
+      </prototype>
+    </procedure>
+    <procedure name="ins_tcontrol" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="period" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="nivel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="gdo" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="gpo" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="emp" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="5"/>
+      </prototype>
+    </procedure>
+    <procedure name="ins_usuario" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="empleado" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="nivel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="privilegio" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="nomusua" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="clave" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="5"/>
+        <parameter name="contador" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="6"/>
+        <parameter name="desde" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" type="1" index="7"/>
+        <parameter name="creado" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" type="1" index="8"/>
+      </prototype>
+    </procedure>
+    <procedure name="inserta_empleado" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="rfc" sqlType="VARCHAR" precision="13" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
+        <parameter name="nom" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+        <parameter name="pat" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
+        <parameter name="mat" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+        <parameter name="fecnac" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" type="1" index="5"/>
+        <parameter name="fecalta" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" type="1" index="6"/>
+        <parameter name="dir" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="7"/>
+        <parameter name="tefijo" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12" type="1" index="8"/>
+        <parameter name="cel" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" type="1" index="9"/>
+        <parameter name="mail" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" type="1" index="10"/>
+        <parameter name="perfil" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="11"/>
+        <parameter name="hrs" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" type="1" index="12"/>
+        <parameter name="gdo" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12" type="1" index="13"/>
+        <parameter name="numss" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" type="1" index="14"/>
+        <parameter name="obs" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12" type="1" index="15"/>
+      </prototype>
+    </procedure>
+    <procedure name="like_cadena_empleado" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="var1" sqlType="VARCHAR" precision="35" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
+        <parameter name="var2" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_alumno" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idalum" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_alumnox_tutor" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idtutor" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_control_inscripcion" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="nivel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="periodo" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_datosfis" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="tutorid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="rfc" sqlType="VARCHAR" precision="13" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_detallepago" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="registro" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="numero" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_docentemateria" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="empleado" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="control" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="materia" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_empdocumento" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="empleaod" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="doc" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_empleado" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idemp" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_entidad" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="entidad" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_horarioemp" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="empleado" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="periodo" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="nivel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="sdia" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12" type="1" index="4"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_materia" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idmat" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="nivel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_materia_tipo" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="nivel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="tipo" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_municipio" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="entidad" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_nivel" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="IDNIVEL" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_numpago" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="reg_pagoid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_padretutor" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idpadre" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_pago" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="idpago" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="tipo" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_perfil" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="perfil" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_usuario" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="usua" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+      </prototype>
+    </procedure>
+    <procedure name="sel_valumno__insc" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="nivel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="periodo" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+      </prototype>
+    </procedure>
+    <procedure name="util_carga_plan_de_pagos" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="id_plan" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="_id_alumno" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="_id_control_inscripcion" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="_id_usuario" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="4"/>
+      </prototype>
+    </procedure>
+    <procedure name="util_recargo" schema="" catalog="plantel" type="2">
+      <prototype>
+        <parameter name="_id_alumno" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="_id_control_inscripcion" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="_id_producto_servicio" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="_mes" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="4"/>
+        <parameter name="" sqlType="DECIMAL" precision="10" scale="2" nullable="true" jdbcType="3" type="5" index="0"/>
+      </prototype>
+    </procedure>
+    <procedure name="util_recargos" schema="" catalog="plantel" type="1">
+      <prototype>
+        <parameter name="_id_alumno" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
+        <parameter name="_id_control_inscripcion" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="_id_producto_servicio" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="3"/>
+        <parameter name="_mes" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="4"/>
+      </prototype>
+    </procedure>
+  </data-source>
+</component>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<components:GruposBase xmlns:fx="http://ns.adobe.com/mxml/2009"
+                       xmlns:s="library://ns.adobe.com/flex/spark"
+                       xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:components="us.educative.views.components.*" width="100%" height="100%">
+    <fx:Declarations>
+        <!-- Place non-visual elements (e.g., services, value objects) here -->
+		<mx:StringValidator id="validaGrupo" source="{txtGrupo}" property="text" trigger="{btnSave}" triggerEvent="click" requiredFieldError="Campo requerido"/>
+		
+    </fx:Declarations>
+    <s:Panel x="0" y="0" width="100%" height="100%" title="Grupos para inscripción">
+        <s:layout>
+            <s:VerticalLayout gap="1" paddingBottom="5" paddingLeft="5" paddingTop="5" paddingRight="5"/>
+        </s:layout>
+        <s:controlBarContent>
+            <s:Label id="lblInformacion"/>
+        </s:controlBarContent>
+		<s:ButtonBar width="100%" dataProvider="{viewStackContenido}" textAlign="right" id="tabbarGrupos"/>
+        <mx:ViewStack id="viewStackContenido" width="100%" height="100%">
+            <s:NavigatorContent width="100%" height="100%" label="Grupos">
+                <s:VGroup x="0" y="0" width="100%" height="100%" paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10">
+                    <s:HGroup width="100%" verticalAlign="middle">
+                        <s:Label text="Periodo" fontWeight="bold" width="120" textAlign="right"/>
+                        <s:DropDownList id="cboPeriodo" width="50%" selectedIndex="0"
+                                        dataProvider="{periodoModel.periodoList}"
+                                        labelField="nombre"/>
+                    </s:HGroup>
+                    <s:HGroup width="100%" verticalAlign="middle">
+                        <s:Label text="Nivel educativo" fontWeight="bold" width="120" textAlign="right"/>
+                        <s:DropDownList selectedIndex="0" id="cboNivelEducativo" width="50%"
+                                        dataProvider="{nivelEducativoModel.nivelEducativoList}" labelField="nivel"/>
+                    </s:HGroup>
+                    <s:HGroup width="100%" verticalAlign="middle">
+                        <s:Label text="Grado" fontWeight="bold" width="120" textAlign="right"/>
+                        <s:NumericStepper id="nsGrado" minimum="1" maximum="12"/>
+                    </s:HGroup>
+                    <s:HGroup width="100%" verticalAlign="middle">
+                        <s:Label text="Grupo" fontWeight="bold" width="120" textAlign="right"/>
+                        <s:TextInput id="txtGrupo" width="50%"/>
+                    </s:HGroup>
+                    <s:HGroup width="100%" verticalAlign="middle">
+                        <s:Label text="Profesor" fontWeight="bold" width="120" textAlign="right"/>
+                        <s:DropDownList id="cboProfesor" width="50%" selectedIndex="0"
+                                        dataProvider="{empleadoModel.profesorList}"
+                                        labelField="nombre_completo"/>
+                        <s:Button label="" icon="assets/icons/arrow_refresh.png" width="36" click="refreshProfesores()"/>
+                    </s:HGroup>
+                    <mx:HRule width="100%"/>
+                    <s:HGroup width="100%" horizontalAlign="right" paddingBottom="1" paddingLeft="1"
+                              paddingRight="1" paddingTop="1">
+                        <s:Button id="btnCancelar" label="Cancelar" icon="assets/icons/cancel.png"/>
+                        <s:Button id="btnSave" label="{isUpdated?'Actualizar':'Guardar'}" styleName="primaryButton" icon="assets/icons/add.png" click="agregarAlumnoClic(isUpdated)"/>
+
+                    </s:HGroup>
+                </s:VGroup>
+            </s:NavigatorContent>
+
+            <s:NavigatorContent width="100%" height="100%" label="Listado de grupos">
+                <s:VGroup width="100%" height="100%" paddingBottom="10" paddingLeft="10"
+                          paddingRight="10" paddingTop="10">
+
+                    <s:HGroup width="100%" verticalAlign="middle">
+                        <s:Label text="Periodo" fontWeight="bold" textAlign="right"/>
+                        <s:DropDownList width="50%" id="cboPeriodoBusqueda" selectedItem="1"
+                                        dataProvider="{periodoModel.periodoList}" labelField="nombre"/>
+
+                        <s:Button label="Buscar" icon="assets/icons/find.png" click="busquedaPeriodoGrupo()" enabled="{cboPeriodoBusqueda.selectedIndex != -1}"/>
+                    </s:HGroup>
+                    <s:DataGrid width="100%" height="100%" dataProvider="{gruposModel.gruposList}">
+                        <s:columns>
+                            <s:ArrayList>
+                                <s:GridColumn dataField="periodo" headerText="Periodo"/>
+                                <s:GridColumn dataField="nivel" headerText="Nivel" width="100"/>
+                                <s:GridColumn dataField="grado" headerText="Grado" width="50"/>
+                                <s:GridColumn dataField="grupo" headerText="Grupo" width="50"/>
+                                <s:GridColumn dataField="nombre_completo" headerText="Responsable de grupo"/>
+                                <s:GridColumn headerText="" width="118">
+                                    <s:itemRenderer>
+                                        <fx:Component>
+                                            <s:GridItemRenderer>
+                                                <s:HGroup>
+													<s:Button icon="assets/icons/ic_assignment_return_grey600_18dp.png" width="36" click="outerDocument.seleccionarGrupo(event, data)"/>
+                                                    <s:Button icon="assets/icons/delete.png" width="36" click="outerDocument.borrarAlumno(data)"/>
+                                                    <s:Button icon="assets/icons/application_form_edit.png" width="36" click="outerDocument.modificarAlumno(data)"/>
+                                                </s:HGroup>
+
+                                            </s:GridItemRenderer>
+                                        </fx:Component>
+                                    </s:itemRenderer>
+                                </s:GridColumn>
+
+                            </s:ArrayList>
+                        </s:columns>
+                    </s:DataGrid>
+                </s:VGroup>
+            </s:NavigatorContent >
+
+            <s:NavigatorContent width="100%" height="100%" label="Inscripciones">
+                <s:VGroup width="100%" height="100%" paddingBottom="10" paddingLeft="10"
+                          paddingRight="10" paddingTop="10">
+
+                    <s:HGroup width="100%" verticalAlign="middle">
+                        <s:Label text="Grupo: {grupoSelected.grupo_completo}" fontWeight="bold" fontSize="22" textAlign="left"/>
+                        <s:Button icon="/assets/icons/page_refresh.png" label="Actualizar" click="refreshInscritos()"/>
+                    </s:HGroup>
+                    <s:HGroup width="100%" height="100%">
+                        <s:DataGrid id="dgDestino" width="100%" height="100%" dataProvider="{gruposModel.alumnosGrupoList}">
+                            <s:columns>
+                                <s:ArrayList>
+                                    <s:GridColumn dataField="matricula" headerText="Matricula" width="90"/>
+                                    <s:GridColumn dataField="curp" headerText="CURP" width="140"/>
+                                    <s:GridColumn dataField="nombre" headerText="Nombre"/>
+                                    <s:GridColumn dataField="apaterno" headerText="Primer apellido"/>
+                                    <s:GridColumn dataField="amaterno" headerText="Segundo apellido"/>
+                                </s:ArrayList>
+                            </s:columns>
+
+                        </s:DataGrid>
+                    </s:HGroup>
+                    <s:HGroup width="100%" verticalAlign="middle">
+                        <s:Label text="Matricula o nombre" fontWeight="bold" width="120" textAlign="right"/>
+                        <s:TextInput id="txtBusqueda" width="75%" />
+                        <s:Button label="Buscar" click="buscarAlumno()"/>
+                        <s:Label text="Listado de alumnos encontrados para inscribir" />
+                    </s:HGroup>
+                    <s:HGroup width="100%" height="100%">
+                        <s:DataGrid id="dgOrigen" width="100%" height="100%" dataProvider="{gruposModel.alumnosNoInscritosList}"
+                                doubleClickEnabled="true" doubleClick="inscripcionAlumno(event)">
+                            <s:columns>
+                                <s:ArrayList>
+                                    <s:GridColumn dataField="matricula" headerText="Matricula" width="90"/>
+                                    <s:GridColumn dataField="curp" headerText="CURP" width="120"/>
+                                    <s:GridColumn dataField="nombre" headerText="Nombre"/>
+                                    <s:GridColumn dataField="apaterno" headerText="Primer apellido"/>
+                                    <s:GridColumn dataField="amaterno" headerText="Segundo apellido"/>
+                                </s:ArrayList>
+                            </s:columns>
+
+                        </s:DataGrid>
+                    </s:HGroup>
+                </s:VGroup>
+            </s:NavigatorContent>
+        </mx:ViewStack>
+
+    </s:Panel>
+</components:GruposBase>

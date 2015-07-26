@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body:LoginBase xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:mx="library://ns.adobe.com/flex/mx" 
+				xmlns:body="us.educative.views.body.*" width="250" height="186">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Panel horizontalCenter="0"
+			 title="LOGIN" width="100%" height="100%">
+		
+		<s:layout>
+			<s:VerticalLayout gap="4" horizontalAlign="center" paddingBottom="15" paddingLeft="15"
+							  paddingRight="15" paddingTop="15"/>
+		</s:layout>
+		<s:controlBarContent>
+			<s:Button width="100%" height="33" label="Login" id="LoginButtonClick" click="clicLogin()" icon="assets/icons/login.png" styleName="primaryButton"/>
+		</s:controlBarContent>
+		<s:TextInput id="txtUsuario" textAlign="center" text="" x="63" y="10" width="100%" height="30" prompt="Nombre de usuario"/>
+		<s:TextInput id="txtClave"  textAlign="center" text="" x="49" y="82" width="100%" height="30" displayAsPassword="true"
+					 prompt="Clave de acceso"/>
+		<s:Label color="#74929A" fontSize="10" text="*Usa tus credenciales para entrar"/>
+		
+		
+	</s:Panel>
+</body:LoginBase>

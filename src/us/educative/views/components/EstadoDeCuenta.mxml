@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+  Created by carlos on 15/01/15.
+-->
+<components:EstadoDeCuentaBase xmlns:fx="http://ns.adobe.com/mxml/2009"
+                               xmlns:s="library://ns.adobe.com/flex/spark"
+                               xmlns:mx="library://ns.adobe.com/flex/mx"
+                               xmlns:components="us.educative.views.components.*"
+                               xmlns:utiles="com.hillelcoren.components.*" width="100%" height="100%">
+
+    <s:Panel x="0" y="0" width="100%" height="100%" title="Alumnos">
+        <s:layout>
+            <s:VerticalLayout gap="1" paddingBottom="5" paddingLeft="5" paddingTop="5"/>
+        </s:layout>
+        <s:controlBarContent>
+            <s:Label id="lblInformacion"/>
+        </s:controlBarContent>
+        <s:ButtonBar width="100%" dataProvider="{viewStackContenido}" textAlign="right"/>
+        <mx:ViewStack id="viewStackContenido" width="100%" height="100%">
+            <s:NavigatorContent width="100%" height="100%" label="Registro de alumno">
+                <s:VGroup width="100%" height="100%" paddingBottom="10" paddingLeft="10"
+                          paddingRight="10" paddingTop="10">
+                    <!-- contenido para el listado de alumnos, que se parezca al de plan de pagos
+                    -->
+                    <s:HGroup width="100%" verticalAlign="middle" paddingBottom="10">
+                        <s:Label fontWeight="bold" textAlign="right" text="Nombre del alumno" width="120"/>
+                        <utiles:AdvancedAutoComplete width="100%"
+                                                     height="25" borderColor="0xcccccc"
+                                                     labelField="alumno" id="ddlAlumno"
+                                />
+                    </s:HGroup>
+                    <s:DataGrid width="100%" height="100%" id="dgListaDePlanDePagos">
+                        <s:columns>
+                            <s:ArrayList>
+                                <s:GridColumn headerText="Concepto" dataField="concepto"/>
+                                <s:GridColumn headerText="Mes" dataField="mes_nombre"/>
+                                <s:GridColumn headerText="" width="40">
+                                    <s:itemRenderer>
+                                        <fx:Component>
+                                            <s:GridItemRenderer>
+                                                <s:HGroup>
+                                                    <s:Button icon="assets/icons/delete.png" width="36" click="outerDocument.borrarConcepto(data)"/>
+                                                </s:HGroup>
+                                            </s:GridItemRenderer>
+                                        </fx:Component>
+                                    </s:itemRenderer>
+                                </s:GridColumn>
+                            </s:ArrayList>
+                        </s:columns>
+                    </s:DataGrid>
+                </s:VGroup>
+            </s:NavigatorContent>
+
+        </mx:ViewStack>
+    </s:Panel>
+</components:EstadoDeCuentaBase>

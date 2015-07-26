@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" width="800" height="400"
+			   close="{PopUpManager.removePopUp(this)}" title="Listado de conceptos de venta">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import mx.managers.PopUpManager;
+			
+			import us.educative.events.IngresosEvent;
+			import us.educative.models.IngresosModel;
+			
+			[Inject]
+			[Bindable] public var ingresosModel:IngresosModel;
+			[Dispatcher]
+			public var dispatcher:IEventDispatcher;
+			
+			[EventHandler(event="IngresosEvent.INGRESOS_QUITAR_REGISTRO_GRID_BORRADO")]
+			public function quitaRegistroBorrado():void
+			{
+				ingresosModel.listadoPagosDetalle.removeItemAt(dgDetalleDePago.selectedIndex);
+				ingresosModel.listadoPagosDetalle.refresh();
+			}
+				
+			
+			public function borrar(object:Object):void
+			{
+				var eventBorrarRegistro:IngresosEvent = new IngresosEvent(IngresosEvent.INGRESOS_BORRAR_PAGO);
+				eventBorrarRegistro.objeto = object;
+				dispatcher.dispatchEvent(eventBorrarRegistro);
+			}
+			
+			public function imprimeRecibo():void
+			{
+				
+			}
+		]]>
+	</fx:Script>
+	<s:layout>
+		
+	<s:VerticalLayout paddingBottom="5" paddingLeft="5" paddingRight="5" paddingTop="5"/>
+	</s:layout>
+	<s:DataGrid width="100%" height="100%" dataProvider="{ingresosModel.listadoPagosDetalle}" id="dgDetalleDePago">
+		<s:columns>
+			<mx:ArrayList>
+				<s:GridColumn headerText="folio" dataField="folio" width="50"/>
+				<s:GridColumn headerText="Concepto" dataField="concepto" width="80"/>
+				<s:GridColumn headerText="Mes" dataField="mes_nombre" width="80"/>
+				<s:GridColumn headerText="Cantidad Pagada" dataField="monto" width="80"/>
+				<s:GridColumn headerText="Metodo" dataField="metodo" width="100"/>
+				<s:GridColumn headerText="Fecha" dataField="fecha_pago" width="80"/>
+				<s:GridColumn headerText="Observaciones" dataField="observaciones" width="250"/>
+				<s:GridColumn headerText="" width="36">
+					<s:itemRenderer>
+						<fx:Component>
+							<s:GridItemRenderer>
+									<s:Button width="36" click="outerDocument.borrar(data)" icon="assets/icons/delete.png"/>
+							</s:GridItemRenderer>
+						</fx:Component>
+					</s:itemRenderer>
+				</s:GridColumn>
+				</mx:ArrayList>
+			</s:columns>
+	</s:DataGrid>
+	
+</s:TitleWindow>

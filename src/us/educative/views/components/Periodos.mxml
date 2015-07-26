@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<components:PeriodosBase xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						 xmlns:s="library://ns.adobe.com/flex/spark" 
+						 xmlns:mx="library://ns.adobe.com/flex/mx" xmlns:components="us.educative.views.components.*" width="100%" height="100%">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		<mx:StringValidator id="validaNombre" source="{txtNombre}" property="text" trigger="{btnSave}" triggerEvent="click" requiredFieldError="Es requerido"/>
+		<mx:StringValidator id="validaFechaInicial" source="{dateChooserInicial}" property="text" triggerEvent="click" trigger="{btnSave}" requiredFieldError="Es requerido"/>
+		<mx:StringValidator id="validaFechaFinal" source="{dateChooserFinal}" property="text" triggerEvent="click" trigger="{btnSave}" requiredFieldError="Es requerido"/>
+						  
+	</fx:Declarations>
+	<s:Panel x="0" y="0" width="100%" height="100%" title="Periodos escolares">
+		<s:layout>
+			<s:VerticalLayout gap="1" paddingBottom="5" paddingLeft="5" paddingTop="5" paddingRight="5"/>
+		</s:layout>
+		<s:controlBarContent>
+			<s:Label id="lblInformacion"/>
+		</s:controlBarContent>
+		<s:ButtonBar width="100%" dataProvider="{viewStackContenido}" textAlign="right"/>
+		<mx:ViewStack id="viewStackContenido" width="100%" height="100%">
+			<s:NavigatorContent width="100%" height="100%" label="Registro de periodos escolares">
+				<s:VGroup x="0" y="0" width="100%" height="100%" paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10">
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Tipo de periodo" fontWeight="bold" width="120" textAlign="right"/>
+						<s:DropDownList id="cboPeriodos" width="50%"
+										dataProvider="{commonModel.periodosList}" labelField="label"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Nombre oficial" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtNombre" width="50%"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label width="120" fontWeight="bold" text="Fecha inicial" textAlign="right"/>
+						<mx:DateField id="dateChooserInicial" width="120" formatString="YYYY-MM-DD" height="24" textInputStyleName="dateFieldRounded"
+									  monthNames="['Enero', 'Febrero', 'Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']"
+									  dayNames="[D,L,M,M,J,V,S]" yearNavigationEnabled="true"/>
+						<s:Label width="120" fontWeight="bold" text="Fecha final" textAlign="right"/>
+						<mx:DateField id="dateChooserFinal" width="120" formatString="YYYY-MM-DD" height="24" textInputStyleName="dateFieldRounded"
+									  monthNames="['Enero', 'Febrero', 'Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']"
+									  dayNames="[D,L,M,M,J,V,S]" yearNavigationEnabled="true"/>
+					</s:HGroup>
+					<mx:HRule width="100%"/>
+					<s:HGroup width="100%" horizontalAlign="right" paddingBottom="1" paddingLeft="1"
+							  paddingRight="1" paddingTop="1">
+						<s:Button label="Nuevo" icon="assets/icons/application_add.png" click="clearControls()"/>
+
+						<s:Button label="Cancelar" click="clearControls()" icon="assets/icons/cancel.png"/>
+						<s:Button id="btnSave" click="saveSendDataToControllerByEvent(isUpdating)" styleName="primaryButton"
+								  label="{isUpdating?'Actualizar':'Guardar'}" icon="assets/icons/add.png"/>
+						
+					</s:HGroup>
+				</s:VGroup>
+			</s:NavigatorContent>
+			<s:NavigatorContent width="100%" height="100%" label="Listado de periodos">
+				<s:VGroup width="100%" height="100%" paddingBottom="10" paddingLeft="10"
+						  paddingRight="10" paddingTop="10"> 
+					
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label fontWeight="bold" text="Periodo" textAlign="right"/>
+						<s:TextInput id="txtBusqueda" width="100%"/>
+						<s:Button label="Buscar" icon="assets/icons/find.png" click="buscarClick()"/>
+					</s:HGroup>
+					<s:DataGrid width="100%" height="100%" dataProvider="{periodoModel.periodoList}">
+						<s:columns>
+							<s:ArrayList>
+								<s:GridColumn dataField="tipo_periodo" headerText="Tipo"></s:GridColumn>
+								<s:GridColumn dataField="nombre" headerText="Nombre"></s:GridColumn>
+								<s:GridColumn dataField="fecha_inicial" headerText="Fecha inicial"></s:GridColumn>
+								<s:GridColumn dataField="fecha_final" headerText="Fecha final"></s:GridColumn>
+								<s:GridColumn headerText="" width="77">
+									<s:itemRenderer>
+										<fx:Component>
+											<s:GridItemRenderer>
+												<s:HGroup>
+													<s:Button icon="assets/icons/delete.png" width="36" click="outerDocument.borrarPeriodo(data)"/>
+													<s:Button icon="assets/icons/application_form_edit.png" width="36" click="outerDocument.modificarPeriodo(data)"/>	
+												</s:HGroup>
+												
+											</s:GridItemRenderer>
+										</fx:Component>
+									</s:itemRenderer>
+								</s:GridColumn>
+							</s:ArrayList>
+						</s:columns>
+					</s:DataGrid>
+				</s:VGroup>
+			</s:NavigatorContent>
+		</mx:ViewStack>
+		
+	</s:Panel>
+</components:PeriodosBase>

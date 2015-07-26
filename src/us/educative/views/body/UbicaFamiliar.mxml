@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:TitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   width="800" height="600" title="Encuentra al responsable familiar"
+			   close="{PopUpManager.removePopUp(this)}">
+	<s:layout>
+		<s:VerticalLayout paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10"/>
+	</s:layout>
+
+	<fx:Script>
+		<![CDATA[
+			import mx.managers.PopUpManager;
+			
+			import us.educative.events.AlumnoEvent;
+			import us.educative.events.PadresEvent;
+			import us.educative.models.CommonModel;
+			
+			[Inject]
+			[Bindable]
+			public var commonModel:CommonModel;
+			
+			[Dispatcher]
+			public var dispatcher:IEventDispatcher;
+			
+			
+			protected function dataGridFamilias_doubleClickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				var familiar:Object = new Object();
+				familiar.id_tutor = event.target.data.id_tutor;
+				familiar.familia = event.target.data.familia;
+				var eventAlumnoFamilia:AlumnoEvent = new AlumnoEvent(AlumnoEvent.ALUMNO_ENCONTRO_FAMILIA);
+				eventAlumnoFamilia.familia = familiar;
+				dispatcher.dispatchEvent(eventAlumnoFamilia);
+				PopUpManager.removePopUp(this);
+			}
+			
+			protected function clickBuscarPadres(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				var eventBuscarPadres:PadresEvent  = new PadresEvent(PadresEvent.PADRES_BUSQUEDA_POR_FILTRO);
+				eventBuscarPadres.busqueda = txtBusqueda.text;
+				dispatcher.dispatchEvent(eventBuscarPadres);
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:controlBarContent>
+		<s:Label id="lblInformacion"/>
+	</s:controlBarContent>
+	<s:HGroup x="10" y="40" width="100%" verticalAlign="middle">
+		<s:Label fontWeight="bold" text="Nombre del familiar"/>
+		<s:TextInput width="100%" id="txtBusqueda"/>
+		<s:Button label="Buscar" icon="assets/icons/find.png" click="clickBuscarPadres(event)"/>
+	</s:HGroup>
+	
+	<s:DataGrid width="100%" height="100%" requestedRowCount="4" 
+				dataProvider="{commonModel.padresList}" id="dataGridFamilias" 
+				doubleClickEnabled="true" doubleClick="dataGridFamilias_doubleClickHandler(event)">
+		<s:columns>
+			<s:ArrayList>
+				<s:GridColumn dataField="familia" headerText="Familia"></s:GridColumn>
+				<s:GridColumn dataField="p_nombre" headerText="Nombre del padre"></s:GridColumn>
+				<s:GridColumn dataField="p_paterno" headerText="Apellido paterno"></s:GridColumn>
+				<s:GridColumn dataField="p_materno" headerText="Apellido materno"></s:GridColumn>
+				<s:GridColumn dataField="p_correo" headerText="Correo"></s:GridColumn>
+				<s:GridColumn dataField="p_telefono" headerText="Teléfono"></s:GridColumn>
+			</s:ArrayList>
+		</s:columns>
+	</s:DataGrid>
+</s:TitleWindow>

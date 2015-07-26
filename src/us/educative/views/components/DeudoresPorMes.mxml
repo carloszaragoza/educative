@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%">
+	<fx:Script>
+		<![CDATA[
+			import flash.net.navigateToURL;
+			
+			import mx.controls.Alert;
+			
+			import spark.events.IndexChangeEvent;
+			
+			import us.educative.config.EducativeConstants;
+			import us.educative.models.CommonModel;
+			[Inject]
+			[Bindable]
+			public var commonModel:CommonModel;
+			
+			protected function changeImprimeDeudores(event:IndexChangeEvent):void
+			{
+				// TODO Auto-generated method stub
+				
+				var request:URLRequest = new URLRequest(EducativeConstants.DEUDORES_POR_MES);
+				
+				var variables:URLVariables = new URLVariables();
+				variables.mes = ddlMeses.selectedItem.data;
+				variables.periodo = 2;
+				request.data = variables;
+				try {
+					navigateToURL(request);
+				}
+				catch (e:Error) {
+					// handle error here
+					Alert.show(e.message,"Error");
+				}
+			}
+			
+			protected function changeImprimePagos(event:IndexChangeEvent):void
+			{
+				// TODO Auto-generated method stub
+				
+				var request:URLRequest = new URLRequest(EducativeConstants.PAGOS_POR_MES);
+				
+				var variables:URLVariables = new URLVariables();
+				variables.mes = ddlMesesPagos.selectedItem.data;
+				variables.periodo = 2;
+				request.data = variables;
+				try {
+					navigateToURL(request);
+				}
+				catch (e:Error) {
+					// handle error here
+					Alert.show(e.message,"Error");
+				}
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Panel x="0" y="0" width="100%" height="100%" title="Reportes">
+		<s:layout>
+			<s:VerticalLayout gap="1" paddingBottom="5" paddingLeft="5" paddingTop="5" paddingRight="5"/>
+		</s:layout>
+		<s:controlBarContent>
+			<s:HGroup width="100%" verticalAlign="middle">
+				<s:Label id="lblInformacion"/>
+			</s:HGroup>
+		</s:controlBarContent>
+		<s:ButtonBar width="100%" dataProvider="{viewStackContenido}" textAlign="right"/>
+		<mx:ViewStack id="viewStackContenido" width="100%" height="100%">
+			<s:NavigatorContent width="100%" height="100%" label="Deudores por mes">
+				<s:VGroup x="0" y="0" width="100%" height="100%" paddingBottom="10" paddingLeft="10"
+						  paddingRight="10" paddingTop="10">
+					<s:HGroup width="100%" height="100%">
+						<s:Label text="Selecciona el mes para abrir el reporte"/>
+						<s:DropDownList id="ddlMeses" width="300" labelField="name" dataProvider="{commonModel.mesesUtil}" change="changeImprimeDeudores(event)"/>
+						
+					</s:HGroup>
+				</s:VGroup>
+			</s:NavigatorContent>
+			
+			<s:NavigatorContent width="100%" height="100%" label="Pagos por mes">
+				<s:VGroup x="0" y="0" width="100%" height="100%" paddingBottom="10" paddingLeft="10"
+						  paddingRight="10" paddingTop="10">
+					<s:HGroup width="100%" height="100%">
+						<s:Label text="Selecciona el mes para abrir el reporte"/>
+						<s:DropDownList id="ddlMesesPagos" width="300" labelField="name" dataProvider="{commonModel.mesesUtil}" change="changeImprimePagos(event)"/>
+						
+					</s:HGroup>
+				</s:VGroup>
+			</s:NavigatorContent>
+		</mx:ViewStack>
+	</s:Panel>
+</s:Group>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<components:DashboardChartsBase xmlns:fx="http://ns.adobe.com/mxml/2009" 
+								xmlns:s="library://ns.adobe.com/flex/spark" 
+								xmlns:mx="library://ns.adobe.com/flex/mx" 
+								xmlns:components="us.educative.views.components.*" width="100%" height="100%"
+								>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Panel width="100%" height="100%" title="Tablero principal" >
+		<s:layout>
+			<s:VerticalLayout paddingBottom="10"/>
+		</s:layout>
+		<s:controlBarContent>
+			<s:Button label="Actualizar datos del tablero" icon="assets/icons/arrow_refresh.png" click="refrescarGraficas()"/>
+		</s:controlBarContent>
+		<mx:HDividedBox width="100%" height="100%">
+			<s:BorderContainer width="50%" height="100%" borderAlpha="0" left="3" top="3">
+				<!--Grafica de cantidad de nombre y mujeres en la escuela-->
+				<s:layout>
+					<s:VerticalLayout>
+						
+					</s:VerticalLayout>
+				</s:layout>
+				<s:Label fontWeight="bold" text="Cantidad de alumnos por sexo" width="100%" textAlign="center"/>
+				<mx:PieChart id="chartPieSexo" height="50%" width="100%" paddingRight="5"
+							 paddingLeft="5" showDataTips="true" dataProvider="{commonModel.dashboardSexoAlumnosList}">
+					<mx:series>
+						<mx:PieSeries nameField="tipo" labelPosition="callout" field="cantidad" labelFunction="display">
+							
+						</mx:PieSeries>
+					</mx:series>	
+				</mx:PieChart>
+				<s:Label fontWeight="bold" text="Alumnos por nivel escolar" width="100%" textAlign="center"/>
+				<mx:PieChart id="chartAlumnos" height="50%" width="100%" paddingRight="5"
+							 paddingLeft="5" showDataTips="true" dataProvider="{commonModel.dashboardNievelesAlumnosList}">
+					<mx:series>
+						<mx:PieSeries nameField="nivel" labelPosition="callout" field="alumnos" labelFunction="displayNivel">
+							
+						</mx:PieSeries>
+					</mx:series>	
+				</mx:PieChart>
+			</s:BorderContainer>
+			<s:BorderContainer width="50%" height="100%" borderAlpha="0" right="3" top="3">
+				<s:layout>
+					<s:VerticalLayout/>
+				</s:layout>
+				<s:Label fontWeight="bold" text="Por mes" width="100%" textAlign="center"/>
+				<mx:ColumnChart dataProvider="{commonModel.dashboardIngresosList}" dataTipFunction="formatDataTip" id="chartIngresos" x="18" y="50" width="100%" height="50%" showDataTips="true">
+					<mx:horizontalAxis>
+						<mx:CategoryAxis categoryField="mes"/>
+					</mx:horizontalAxis>
+					<mx:verticalAxis>
+						<mx:LinearAxis baseAtZero="false" labelFunction="linearAxis_labelFunc"/>
+					</mx:verticalAxis>
+					<mx:series>
+						<mx:ColumnSeries displayName="Ingreso" yField="ingresos" fillFunction="barFillFunction"/>
+						<mx:ColumnSeries displayName="Por ingresar" yField="cantidad_por_pagar" fillFunction="barFillFunction2"/>
+					</mx:series>
+				</mx:ColumnChart>
+				<s:Label fontWeight="bold" text="Por nivel educativo" width="100%" textAlign="center"/>
+				<mx:ColumnChart dataProvider="{commonModel.dashboardPorCobrarList}" dataTipFunction="formatDataTipNivel" id="chartPorCobrar" x="18" y="50" width="100%" height="50%" showDataTips="true">
+					<mx:horizontalAxis>
+						<mx:CategoryAxis categoryField="nivel"/>
+					</mx:horizontalAxis>
+					<mx:verticalAxis>
+						<mx:LinearAxis baseAtZero="false" labelFunction="linearAxis_labelFunc"/>
+					</mx:verticalAxis>
+					<mx:series>
+						<mx:ColumnSeries displayName="Ingreso" yField="ingresos" fillFunction="barFillFunction"/>
+						<mx:ColumnSeries displayName="Por ingresar" yField="cantidad_por_pagar" fillFunction="barFillFunction2"/>
+					</mx:series>
+				</mx:ColumnChart>
+			</s:BorderContainer>
+		</mx:HDividedBox>
+	</s:Panel>
+	
+</components:DashboardChartsBase>

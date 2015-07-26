@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menuitem>
+	<menuitem label="Dashboard" icon="iconMenuHome" id="dashboard">
+		<menuitem label="Tablero" icon="iconAsterisk" data="componentTablero" type="button" />
+	</menuitem>
+	<menuitem label="Control Escolar" id="controlEscolar">
+		<menuitem label="Alumnos" data="alumnosComponent" type="button"/>
+		<menuitem label="Padres" data="padresComponent" type="button" />
+		<menuitem label="Grupos" data="gruposComponent" type="button" />
+	</menuitem>
+	<menuitem label="Administración y finanzas">
+		<menuitem label="Empleados" data="empleadosComponent" type="button" />
+	</menuitem>
+	<menuitem label="Reportes">
+		<menuitem label="Deudores" data="deudoresComponent" type="button" />
+	</menuitem>
+	<menuitem label="Configuraciones">
+		<menuitem label="Periodos" data="periodosComponent" type="button" />
+	</menuitem>
+</menuitem>

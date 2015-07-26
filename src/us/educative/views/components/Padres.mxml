@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<components:PadresBase xmlns:fx="http://ns.adobe.com/mxml/2009" 
+					   xmlns:s="library://ns.adobe.com/flex/spark" 
+					   xmlns:mx="library://ns.adobe.com/flex/mx" 
+					   xmlns:components="us.educative.views.components.*" width="100%" height="100%">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		<mx:StringValidator id="validaNombre" source="{txtNombre}" property="text" requiredFieldError="Escribe el nombre del padre"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaPaterno" source="{txtPaterno}" property="text" requiredFieldError="Escribe el apellido paterno del padre"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaMaterno"  source="{txtMaterno}" property="text" requiredFieldError="Escribe el apellido materno del padre"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaTelefono" source="{txtTelefono}" property="text" requiredFieldError="Escribe el teléfono celular o de casa"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaCorreo" source="{txtCorreo}" property="text" requiredFieldError="Escribe el correo válido"
+							trigger="{btnSave}" triggerEvent="click"/>
+		
+		<mx:StringValidator id="validaNombreMama" source="{txtNombreMama}" property="text" requiredFieldError="Escribe el nombre de la madre"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaPaternoMama" source="{txtPaternoMama}" property="text" requiredFieldError="Escribe el apellido paterno de la madre"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaMaternoMama"  source="{txtMaternoMama}" property="text" requiredFieldError="Escribe el apellido materno de la madre"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaTelefonoMama" source="{txtTelefonoMama}" property="text" requiredFieldError="Escribe el teléfono celular o de casa"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaCorreoMama" source="{txtCorreoMama}" property="text" requiredFieldError="Escribe el correo válido"
+							trigger="{btnSave}" triggerEvent="click"/>
+		
+		<mx:StringValidator id="validaFamilia" source="{txtFamilia}" property="text" requiredFieldError="Escribe el nombre de la famlia"
+							trigger="{btnSave}" triggerEvent="click"/>
+		
+		<mx:StringValidator id="validaDireccion" source="{txtDireccion}" property="text" requiredFieldError="Escribe la dirección"
+							trigger="{btnSave}" triggerEvent="click"/>
+		<mx:StringValidator id="validaCP" source="{txtCP}" property="text" required="true" requiredFieldError="escribe el código postal"
+							trigger="{btnSave}" triggerEvent="click"/>
+		
+	</fx:Declarations>
+	<s:Panel x="0" y="0" width="100%" height="100%" title="Familias">
+		<s:layout>
+			<s:VerticalLayout gap="1" paddingBottom="5" paddingLeft="5" paddingTop="5" paddingRight="5"/>
+		</s:layout>
+		<s:controlBarContent>
+			<s:Label id="lblInformacion"/>
+		</s:controlBarContent>
+		<s:ButtonBar width="100%" dataProvider="{viewStackContenido}" textAlign="right"/>
+		<mx:ViewStack id="viewStackContenido" width="100%" height="100%">
+			<s:NavigatorContent width="100%" height="100%" label="Registro de familia">
+				<s:VGroup x="0" y="0" width="100%" height="100%" paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10">
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Padre o tutor" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtNombre" width="100%" prompt="Nombre(s)"/>
+						<s:TextInput id="txtPaterno" width="100%" prompt="Primer apellido"/>
+						<s:TextInput id="txtMaterno" width="100%" prompt="Segundo apellido"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Teléfono" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtTelefono" width="50%"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Correo" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtCorreo" width="50%"/>
+					</s:HGroup>
+					<mx:HRule width="100%"/>
+					
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Madre o tutora" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtNombreMama" width="100%" prompt="Nombre(s)"/>
+						<s:TextInput id="txtPaternoMama" width="100%" prompt="Primer apellido"/>
+						<s:TextInput id="txtMaternoMama" width="100%" prompt="Segundo apellido"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Teléfono" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtTelefonoMama" width="50%"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Correo" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtCorreoMama" width="50%"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Famlia" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtFamilia" width="50%" text="{txtPaterno.text + ' ' + txtPaternoMama.text}"/>
+					</s:HGroup>
+					<mx:HRule width="100%"/>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Dirección" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtDireccion" width="50%"/>
+						<s:Label text="CP" fontWeight="bold" width="120" textAlign="right"/>
+						<s:TextInput id="txtCP" width="25%"/>
+					</s:HGroup>
+					
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Entidad" fontWeight="bold"  width="120" textAlign="right"/>
+						<s:DropDownList id="cboEntidad" width="50%" change="changeComboEntidad(event)" dataProvider="{direccionModel.acListEntidad}" labelField="entidad"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						
+						<s:Label text="Municipio" fontWeight="bold"  width="120" textAlign="right"/>
+						<s:DropDownList id="cboMunicipio" width="50%" change="changeComboMunicipio(event)" dataProvider="{direccionModel.acListMunicipio}" labelField="municipio"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label text="Localidad" fontWeight="bold"  width="120" textAlign="right"/>
+						<s:DropDownList id="cboLocalidad" width="50%" dataProvider="{direccionModel.acListLocalidad}" labelField="localidad"/>
+					</s:HGroup>
+					<s:HGroup width="100%" horizontalAlign="right" paddingBottom="1" paddingLeft="1"
+							  paddingRight="1" paddingTop="1">
+						<s:Button label="Nuevo" icon="assets/icons/application_add.png" click="clearControls()"/>
+						<s:Button label="Cancelar" icon="assets/icons/cancel.png" click="clearControls()"/>
+						<s:Button label="{isUpdating?'Actualizar':'Guardar'}" click="guardarFamiliaClick(isUpdating);" styleName="primaryButton"
+								  icon="assets/icons/add.png" id="btnSave"/>
+						
+					</s:HGroup>
+				</s:VGroup>
+			</s:NavigatorContent>
+			<s:NavigatorContent width="100%" height="100%" label="Buscar un familiar">
+				<s:VGroup width="100%" height="100%" paddingBottom="10" paddingLeft="10"
+						  paddingRight="10" paddingTop="10"> 
+					
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label fontWeight="bold" text="Nombre de la famlia" textAlign="right"/>
+						<s:TextInput id="txtBusqueda" width="100%"/>
+						<s:Button label="Buscar" icon="assets/icons/find.png" click="buscarPadresClick()"/>
+					</s:HGroup>
+					<s:DataGrid width="100%" height="100%" dataProvider="{padresModel.padresList}">
+						<s:columns>
+							<s:ArrayList>
+								<s:GridColumn dataField="familia" headerText="Familia"></s:GridColumn>
+								<s:GridColumn dataField="p_nombre" headerText="Nombre del padre"></s:GridColumn>
+								<s:GridColumn dataField="p_paterno" headerText="Apellido paterno"></s:GridColumn>
+								<s:GridColumn dataField="p_materno" headerText="Apellido materno"></s:GridColumn>
+								<s:GridColumn dataField="p_correo" headerText="Correo"></s:GridColumn>
+								<s:GridColumn dataField="p_telefono" headerText="Teléfono"></s:GridColumn>
+								<s:GridColumn headerText="" width="77">
+									<s:itemRenderer>
+										<fx:Component>
+											<s:GridItemRenderer>
+												<s:HGroup>
+													<s:Button icon="assets/icons/delete.png" width="36" click="outerDocument.borrarFamilia(data)"/>
+													<s:Button icon="assets/icons/application_form_edit.png" width="36" click="outerDocument.modificarFamilia(data)"/>	
+												</s:HGroup>
+												
+											</s:GridItemRenderer>
+										</fx:Component>
+									</s:itemRenderer>
+								</s:GridColumn>
+							</s:ArrayList>
+						</s:columns>
+					</s:DataGrid>
+				</s:VGroup>
+			</s:NavigatorContent>
+		</mx:ViewStack>
+		
+	</s:Panel>
+</components:PadresBase>
