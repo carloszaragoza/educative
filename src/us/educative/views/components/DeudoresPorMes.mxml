@@ -12,9 +12,14 @@
 			
 			import us.educative.config.EducativeConstants;
 			import us.educative.models.CommonModel;
+			import us.educative.models.PeriodoModel;
+
 			[Inject]
 			[Bindable]
 			public var commonModel:CommonModel;
+
+			[Inject]
+			[Bindable] public var periodoModel:PeriodoModel;
 			
 			protected function changeImprimeDeudores(event:IndexChangeEvent):void
 			{
@@ -24,7 +29,7 @@
 				
 				var variables:URLVariables = new URLVariables();
 				variables.mes = ddlMeses.selectedItem.data;
-				variables.periodo = 2;
+				variables.periodo = periodoModel.cicloVigente.id_periodo;
 				request.data = variables;
 				try {
 					navigateToURL(request);
@@ -43,7 +48,7 @@
 				
 				var variables:URLVariables = new URLVariables();
 				variables.mes = ddlMesesPagos.selectedItem.data;
-				variables.periodo = 2;
+				variables.periodo = periodoModel.cicloVigente.id_periodo;
 				request.data = variables;
 				try {
 					navigateToURL(request);
