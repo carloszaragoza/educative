@@ -11,10 +11,11 @@ import us.educative.VO.PeriodoVO;
 		public var periodoList:ArrayCollection;
 		public function PeriodoModel()
 		{
-            cicloVigente.id_periodo = 5;
-            cicloVigente.nombre = "2017 - 2018";
-            cicloVigente.fecha_inicial = "2017-08-28";
-            cicloVigente.fecha_final = "2018-07-06";
+			/* llenar este modelo al inicio con la informacion del periodo vigente.
+            cicloVigente.id_periodo = 2;
+            cicloVigente.nombre = "2019-2020";
+            cicloVigente.fecha_inicial = "2019-08-26";
+            cicloVigente.fecha_final = "2020-07-03";*/
 		}
 	}
 }

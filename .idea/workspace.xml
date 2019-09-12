@@ -4,26 +4,30 @@
     <list default="true" id="616747f4-543b-41c4-ac58-bd29955d8330" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/AutoComplete_1_2_Fx4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/AutoComplete_1_2_Fx4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/agslib_3_6_2013_12_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/agslib_3_6_2013_12_13.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/swiz_framework_v1_4_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/swiz_framework_v1_4_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Educative.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Educative.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Educative.mxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Educative.mxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/us/educative/VO/PeriodoVO.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/us/educative/VO/PeriodoVO.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/us/educative/config/EducativeConstants.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/us/educative/config/EducativeConstants.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/us/educative/controllers/CommonController.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/us/educative/controllers/CommonController.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/us/educative/controllers/DireccionController.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/us/educative/controllers/DireccionController.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/us/educative/datas/menuAdministrador.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/us/educative/datas/menuAdministrador.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/us/educative/events/CommonEvent.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/us/educative/events/CommonEvent.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/us/educative/models/IngresosModel.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/us/educative/models/IngresosModel.as" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/us/educative/models/PeriodoModel.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/us/educative/models/PeriodoModel.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/us/educative/views/components/DeudoresPorMes.mxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/us/educative/views/components/DeudoresPorMes.mxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/us/educative/services/CommonService.as" beforeDir="false" afterPath="$PROJECT_DIR$/src/us/educative/services/CommonService.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/us/educative/views/components/Grupos.mxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/us/educative/views/components/Grupos.mxml" afterDir="false" />
     </list>
-    <ignored path="Educative.iws" />
-    <ignored path=".idea/workspace.xml" />
-    <ignored path="$PROJECT_DIR$/classes/" />
-    <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -42,46 +46,39 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="educative@mysql.institutohoward.org" type="feb32156:DbDataSourceImpl" />
+        <item name="localhost" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="educative@mysql.institutohoward.org" type="feb32156:DbDataSourceImpl" />
+        <item name="localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="educative@mysql.institutohoward.org" type="feb32156:DbDataSourceImpl" />
+        <item name="localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="educative: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="educative@mysql.institutohoward.org" type="feb32156:DbDataSourceImpl" />
+        <item name="localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="educative: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="educative@mysql.institutohoward.org" type="feb32156:DbDataSourceImpl" />
+        <item name="localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="educative: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="views" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="educative@mysql.institutohoward.org" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="educative: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="routines" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="cat_periodos: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Educative" />
@@ -92,254 +89,11 @@
     <fileColor scope="Non-Project Files (Material Lighter)" color="eae8e8" />
     <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_usuarios">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state projectRestartId="bdc8b1cf-95dd-4972-acb6-de4d1010560f">
-              <filtering />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_relacion_familiar">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state projectRestartId="bdc8b1cf-95dd-4972-acb6-de4d1010560f">
-              <filtering />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_producto_servicio">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state projectRestartId="bdc8b1cf-95dd-4972-acb6-de4d1010560f">
-              <filtering />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_periodos">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state projectRestartId="bdc8b1cf-95dd-4972-acb6-de4d1010560f">
-              <filtering />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/us/educative/controllers/AlumnoController.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="23" column="8" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/48496435-44fa-4e45-89ef-a2e91975a091/console.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="3" column="30" selection-start-line="3" selection-end-line="3" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_plan_pagos">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state projectRestartId="bdc8b1cf-95dd-4972-acb6-de4d1010560f">
-              <filtering />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_becas_alumno">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state projectRestartId="bdc8b1cf-95dd-4972-acb6-de4d1010560f">
-              <filtering />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>mx</find>
-      <find>PlanDePagosEvent</find>
-      <find>GRUPOS_REFRESCAR_INSCRITOS</find>
-      <find>getAllGrupos</find>
-      <find>INGRESOS_GET_ALL_GRUPOS</find>
-      <find>periodoModel</find>
-      <find>dashboardIngresosList</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/us/educative/views/components/Grupos.mxml" />
-        <option value="$PROJECT_DIR$/src/us/educative/views/components/GruposBase.as" />
-        <option value="$PROJECT_DIR$/src/us/educative/events/GruposEvent.as" />
-        <option value="$PROJECT_DIR$/src/us/educative/services/GruposService.as" />
-        <option value="$PROJECT_DIR$/src/us/educative/controllers/GruposController.as" />
-        <option value="$PROJECT_DIR$/src/Educative.mxml" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/1405cb64-d920-4720-82b3-2769c8afa7ff/console.sql" />
-        <option value="$PROJECT_DIR$/src/us/educative/models/IngresosModel.as" />
-        <option value="$PROJECT_DIR$/src/us/educative/models/PeriodoModel.as" />
-        <option value="$PROJECT_DIR$/src/us/educative/config/EducativeConstants.as" />
-        <option value="$PROJECT_DIR$/src/us/educative/views/components/DeudoresPorMes.mxml" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/48496435-44fa-4e45-89ef-a2e91975a091/console.sql" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1680" />
-    <option name="height" value="981" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-          <State>
-            <id>Android Lint</id>
-          </State>
-          <State>
-            <id>Assignment issuesGroovy</id>
-          </State>
-          <State>
-            <id>Assignment issuesJava</id>
-          </State>
-          <State>
-            <id>Bitwise operation issuesJavaScript</id>
-          </State>
-          <State>
-            <id>Control flow issuesJava</id>
-          </State>
-          <State>
-            <id>GSPGrailsGroovy</id>
-          </State>
-          <State>
-            <id>General</id>
-          </State>
-          <State>
-            <id>GeneralJavaScript</id>
-          </State>
-          <State>
-            <id>GrailsGroovy</id>
-          </State>
-          <State>
-            <id>Groovy</id>
-          </State>
-          <State>
-            <id>J2ME Plugin</id>
-          </State>
-          <State>
-            <id>Java</id>
-          </State>
-          <State>
-            <id>JavaScript</id>
-          </State>
-          <State>
-            <id>Maven</id>
-          </State>
-          <State>
-            <id>Plugin DevKit</id>
-          </State>
-          <State>
-            <id>Potentially confusing code constructsGroovy</id>
-          </State>
-          <State>
-            <id>Potentially confusing code constructsJavaScript</id>
-          </State>
-          <State>
-            <id>Probable bugsGroovy</id>
-          </State>
-          <State>
-            <id>Probable bugsJava</id>
-          </State>
-          <State>
-            <id>Probable bugsJavaScript</id>
-          </State>
-          <State>
-            <id>Spelling</id>
-          </State>
-          <State>
-            <id>Threading issuesGroovy</id>
-          </State>
-          <State>
-            <id>Threading issuesJava</id>
-          </State>
-          <State>
-            <id>XPath</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>SpellCheckingInspection</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
-  </component>
+  <component name="ProjectId" id="1OckgWOVUp851m9T5vL7MBZfTr2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Educative" type="b2602c69:ProjectViewProjectNode" />
-              <item name="educative" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Educative" type="b2602c69:ProjectViewProjectNode" />
-              <item name="educative" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Educative" type="b2602c69:ProjectViewProjectNode" />
-              <item name="educative" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="educative" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Educative" type="b2602c69:ProjectViewProjectNode" />
-              <item name="educative" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="educative" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Educative" type="b2602c69:ProjectViewProjectNode" />
-              <item name="educative" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="educative" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="GoToClass.includeLibraries" value="false" />
@@ -354,11 +108,11 @@
     <property name="database.console.LAST_STATE" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -378,13 +132,6 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="Unknown" factoryName="Unknown">
-      <method />
-    </configuration>
-    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
-      <Host>localhost</Host>
-      <Port>5050</Port>
-    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType">
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -440,6 +187,13 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="Unknown" factoryName="Unknown">
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -453,7 +207,7 @@
       </method>
     </configuration>
     <configuration name="Educa (Educative)" type="FlashRunConfigurationType">
-      <option name="BCName" value="Educa" />
+      <option name="BCName" value="educative" />
       <option name="IOSSimulatorDevice" value="" />
       <option name="IOSSimulatorSdkPath" value="" />
       <option name="adlOptions" value="" />
@@ -461,7 +215,7 @@
       <option name="appDescriptorForEmulator" value="Android" />
       <option name="clearAppDataOnEachLaunch" value="true" />
       <option name="debugTransport" value="USB" />
-      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="debuggerSdkRaw" value="flex_sdk_4.6" />
       <option name="emulator" value="NexusOne" />
       <option name="emulatorAdlOptions" value="" />
       <option name="fastPackaging" value="true" />
@@ -470,7 +224,7 @@
       <option name="launchUrl" value="true" />
       <option name="launcherParameters">
         <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="browser" value="fd9f93c4-b8ac-4304-8a01-bb561e5a6af5" />
           <option name="launcherType" value="Browser" />
           <option name="newPlayerInstance" value="false" />
           <option name="playerPath" value="FlashPlayerDebugger.exe" />
@@ -485,7 +239,7 @@
       <option name="screenDpi" value="0" />
       <option name="screenHeight" value="0" />
       <option name="screenWidth" value="0" />
-      <option name="url" value="http://localhost:8080/sugar/educative/Educative.html" />
+      <option name="url" value="http://localhost/Educative.html" />
       <option name="usbDebugPort" value="7936" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -597,6 +351,26 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@40aa2a9e" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@40aa2a9e" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@19d35b2" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration>C:\Users\Carlos Zaragoza\AppData\Roaming\Subversion</configuration>
   </component>
@@ -619,7 +393,22 @@
       <workItem from="1518890786578" duration="3445000" />
       <workItem from="1519765522372" duration="117000" />
       <workItem from="1563853859435" duration="4171000" />
-      <workItem from="1563937449278" duration="1460000" />
+      <workItem from="1563937449278" duration="3981000" />
+      <workItem from="1564284052487" duration="162000" />
+      <workItem from="1564284402274" duration="34000" />
+      <workItem from="1564284490160" duration="1440000" />
+      <workItem from="1567556002331" duration="5449000" />
+      <workItem from="1567714465902" duration="72000" />
+      <workItem from="1568074151996" duration="47000" />
+      <workItem from="1568074224909" duration="409000" />
+      <workItem from="1568078152028" duration="663000" />
+      <workItem from="1568078836264" duration="1676000" />
+      <workItem from="1568162037170" duration="592000" />
+      <workItem from="1568162665422" duration="112000" />
+      <workItem from="1568162804964" duration="5882000" />
+      <workItem from="1568255057492" duration="119000" />
+      <workItem from="1568255250752" duration="120000" />
+      <workItem from="1568255392285" duration="3155000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios locales">
       <created>1437883905575</created>
@@ -631,49 +420,35 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41743000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="981" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24725275" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info id="Palette&#9;" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info id="Image Layers" order="5" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.41707718" />
-      <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="9" visible="true" weight="0.5073116" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32900432" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32707182" />
-      <window_info anchor="bottom" id="Docker" order="13" visible="true" weight="0.3295838" />
-      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Designer" order="4" />
-      <window_info anchor="right" id="Database" order="5" weight="0.24664225" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Maven" order="9" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -687,509 +462,34 @@
     <MESSAGE value="Cambios locales" />
     <option name="LAST_COMMIT_MESSAGE" value="Cambios locales" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="flex">
+          <url>file://$PROJECT_DIR$/src/us/educative/services/GruposService.as</url>
+          <line>42</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="flex">
+          <url>file://$PROJECT_DIR$/src/us/educative/controllers/CommonController.as</url>
+          <line>75</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="flex">
+          <url>file://$PROJECT_DIR$/src/us/educative/controllers/CommonController.as</url>
+          <line>162</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="FlashRunConfigurationType">
+        <watch expression="periodoModel" language="ECMA Script Level 4" />
+      </configuration>
+    </watches-manager>
+  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/us/educative/views/components/DashboardCharts.mxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="80" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/us/educative/views/components/IngresosBase.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="67" column="38" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1405cb64-d920-4720-82b3-2769c8afa7ff/schema/educative/table/cat_alumnos" />
-    <entry file="file://$PROJECT_DIR$/src/us/educative/models/PeriodoModel.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/view/v_alumnos">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbSrc:///85e540e/48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/routine/util_recargos@(int(11),int(11),int(11),int(11)).sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="78" selection-start-line="24" selection-start-column="78" selection-end-line="24" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbSrc:///85e540e/48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/routine/util_recargo@(int(11),int(11),int(11),int(11)).sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="61" selection-start-line="1" selection-start-column="61" selection-end-line="1" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbSrc:///85e540e/48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/routine/util_carga_plan_de_pagos@(int(11),int(11),int(11),int(11)).sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="62" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbSrc:///85e540e/48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/routine/sel_valumno__insc@(int(11),int(11)).sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="62" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbSrc:///85e540e/48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/routine/like_cadena_empleado@(varchar(35),varchar(60)).sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="62" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbSrc:///85e540e/48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/routine/inserta_empleado@(varchar(13),varchar(60),varchar(60),varchar(60),date,date,varchar(200),varchar(15),varchar(20),varchar(100),int(11),smallint(6),varchar(200),varchar(25),varchar(150)).sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="62" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbSrc:///85e540e/48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/routine/ins_concepto_alumno@(int(11),int(11),int(11),int(11),int(11)).sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="62" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbSrc:///85e540e/48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/routine/incre_usuario@(int(11)).sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="62" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbSrc:///85e540e/48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/routine/chart_cantidad_sexo@().sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_periodo_calif">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_perfiles">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_alumnos">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_padre_tutor">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_nivel_educativo">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_municipios">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_materias">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_salida_inventario">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_becas">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_cuentas">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_documentos">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_empleados">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_registro_pagos">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_plan_pagos_detalle">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_paquete">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_otros_ingresos">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_horario_grupo">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_horario_empleado">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_entrada_inventario">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_egresos">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_documento_empleado">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_docente_materia">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_detalle_paquete">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_detalle_pago">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_detalle_inscripcion">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_datos_fiscales">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_control_inscripcion">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_calificaciones">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/ctrl_calificaciones">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="48d547bd-a4f1-4c43-a108-646ba550b92a">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_usuarios">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="bdc8b1cf-95dd-4972-acb6-de4d1010560f">
-          <filtering />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_relacion_familiar">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="bdc8b1cf-95dd-4972-acb6-de4d1010560f">
-          <filtering />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_producto_servicio">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="bdc8b1cf-95dd-4972-acb6-de4d1010560f">
-          <filtering />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/48496435-44fa-4e45-89ef-a2e91975a091/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="3" column="30" selection-start-line="3" selection-end-line="3" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_plan_pagos">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="bdc8b1cf-95dd-4972-acb6-de4d1010560f">
-          <filtering />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/t_becas_alumno">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="bdc8b1cf-95dd-4972-acb6-de4d1010560f">
-          <filtering />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://48496435-44fa-4e45-89ef-a2e91975a091/schema/educative/table/cat_periodos">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="bdc8b1cf-95dd-4972-acb6-de4d1010560f">
-          <filtering />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/us/educative/controllers/AlumnoController.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="23" column="8" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Educative</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>swiz-framework-v1.4.0</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

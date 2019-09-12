@@ -22,7 +22,7 @@ public class IngresosModel {
         {label:"Septiembre", data:"9"},
         {label:"Octubre", data:"10"},
         {label:"Noviembre", data:"11"},
-        {label:"Diciembre", data:"12"},])
+        {label:"Diciembre", data:"12"}]);
     public function IngresosModel() {
     }
 }

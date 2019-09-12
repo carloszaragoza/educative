@@ -9,6 +9,7 @@ package us.educative.events
 		public static const USER_TRY_LOGIN_EVENT:String = "userTryLoginEvent";
 		public static const USER_LOGGED_EVENT:String = "userLoggedEvent";
 		public static const DASHBOARD_GET_CHARTS:String = "dashboardGetCharts";
+		public static const PERIOD_ACTIVE_EVENT:String = "periodActiveEvent";
 		public static const MENU_SELECCIONA_COMPONENTE:String = "menuSeleccionaComponente";
 		
 		public var usuario:UsuarioDTO;

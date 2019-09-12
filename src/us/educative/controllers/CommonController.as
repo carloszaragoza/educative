@@ -6,14 +6,17 @@ package us.educative.controllers
 	import mx.rpc.events.ResultEvent;
 	
 	import org.swizframework.controller.AbstractController;
-	
-	import us.educative.VO.UsuarioDTO;
+
+import us.educative.VO.PeriodoVO;
+
+import us.educative.VO.UsuarioDTO;
 	import us.educative.events.CommonEvent;
 	import us.educative.models.CommonModel;
 	import us.educative.models.DireccionModel;
 	import us.educative.models.EmpleadoModel;
 	import us.educative.models.NivelEducativoModel;
-	import us.educative.models.PeriodoModel;
+import us.educative.models.PeriodoModel;
+import us.educative.models.PeriodoModel;
 	import us.educative.services.CommonService;
 	import us.educative.services.DireccionService;
 	import us.educative.services.EmpleadoService;
@@ -55,12 +58,31 @@ package us.educative.controllers
 			executeServiceCall(commonService.getAllPerfiles(), getAllPerfilesResult, commonFault);
 			executeServiceCall(periodoService.getAll(), getAllPeriodoResult, commonFault);
 			executeServiceCall(nivelEducativoService.getAll(), nivelEducativoServiceResult, commonFault);
+			executeServiceCall(commonService.getPeriodo(),getPeriodoResult, commonFault);
 			getProfesores();
 			getChartSexo();
 			getChartIngresos();
 			getChartPorCobrar();
 			getChartNivelesAlumnos();
 			
+		}
+
+
+
+		private function getPeriodoResult(event:ResultEvent):void {
+			if(event.result.hasOwnProperty('error')){
+				Alert.show(event.result.error, "Error");
+			}else{
+				var periodoLocal:ArrayCollection = new ArrayCollection(event.result as Array);
+				var objeto:Object = periodoLocal.getItemAt(0);
+				periodoModel.cicloVigente.id_periodo = objeto.id_periodo;
+				periodoModel.cicloVigente.fecha_final = objeto.fecha_final;
+				periodoModel.cicloVigente.fecha_inicial = objeto.fecha_inicial;
+				periodoModel.cicloVigente.nombre = objeto.nombre;
+				periodoModel.cicloVigente.status = objeto.status;
+				periodoModel.cicloVigente.tipo_periodo = objeto.tipo_periodo;
+				trace(periodoModel.cicloVigente);
+			}
 		}
 		
 		[EventHandler(event="EmpleadoEvent.EMPLEADO_GET_PROFESORES")]

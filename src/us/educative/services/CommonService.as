@@ -2,8 +2,10 @@ package us.educative.services
 {
 	import mx.rpc.AsyncToken;
 	import mx.rpc.remoting.RemoteObject;
-	
-	import us.educative.VO.UsuarioDTO;
+
+import org.swizframework.utils.async.AsyncTokenOperation;
+
+import us.educative.VO.UsuarioDTO;
 	import us.educative.config.EducativeConstants;
 
 	public class CommonService
@@ -32,6 +34,10 @@ package us.educative.services
 			dashboardRO.endpoint = EducativeConstants.SERVICE_END_POINT;
 			dashboardRO.source = EducativeConstants.SERVICE_DASHBOARD;
 			
+		}
+		public function getPeriodo():AsyncToken
+		{
+			return dashboardRO.getPeriodo();
 		}
 		
 		//Lee al usaurio y lo valida con el servicio en PHP 

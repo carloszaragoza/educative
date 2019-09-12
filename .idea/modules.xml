@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Educative.iml" filepath="$PROJECT_DIR$/Educative.iml" />
+      <module fileurl="file://$PROJECT_DIR$/www/amfphp/Amfphp/Services/Services.iml" filepath="$PROJECT_DIR$/www/amfphp/Amfphp/Services/Services.iml" />
     </modules>
   </component>
 </project>

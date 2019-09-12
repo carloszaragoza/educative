@@ -41,13 +41,11 @@ package us.educative.controllers
 		
 		private function direccionFault(event:FaultEvent):void
 		{
-			// TODO Auto Generated method stub
 			Alert.show(event.message.toString(),"Error");
 		}
 		
 		private function catEntidadResult(event:ResultEvent):void
 		{
-			// TODO Auto Generated method stub
 			try
 			{
 				direccionModel.acListEntidad = event.result as ArrayCollection	
